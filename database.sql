@@ -21,8 +21,8 @@ create table couples (
     email varchar(255),
     profile varchar(255),
     start_date date, 
-    cover_url ,varchar(255),
-    profile_url, varchar(255),
+    cover_url varchar(255),
+    profile_url varchar(255),
     created datetime default null,
     modified datetime default null
 );
