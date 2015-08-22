@@ -79,3 +79,19 @@ function getfeeds($a) {
   return $dates;
 }
 
+//特集
+function getspecials($a) {
+  $dbh = connectDb();
+  $sql = "SELECT *,COUNT(*) 
+			FROM dates 
+			LEFT JOIN favorites 
+			ON dates.id = favorites.date_id 
+			GROUP BY favorites.date_id
+			ORDER BY dates.id DESC
+			LIMIT 20;";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $specials = $stmt->fetch();
+  return $specials;
+}
+
