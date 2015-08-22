@@ -190,3 +190,20 @@ footer p {
         clear: both;
     }
 }
+
+body { padding-top: 100px; }
+/*書き足した部分のCSS*/
+    .navbar-nav > li > a{
+        padding:14px 8px 8px 8px;
+    }
+    .navbar-nav > li{
+        border-style: bold;
+        border-color: black;
+    }
+
+ /*   .navbar {
+        position:fixed;
+        z-index:2; 
+        width:100%
+    }
+*/
