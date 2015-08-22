@@ -5,6 +5,7 @@ require_once('function.php');
 //データベースに接続
 $dbh = connectDb();
 
+ echo getlocation(1);
 
 ?>
 
