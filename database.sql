@@ -50,7 +50,7 @@ create table dates (
     modified datetime default null
 );
 
-insert into dates (couple_id, name, content, created, modified) values 
+insert into dates (couple_id, name, description, created, modified) values 
     (1, "渋谷デート", "あｓｌ；なｓｌんヴぁんｖ", now(), now()),
     (1, "自由が丘デート", "ｓだｖなぁんｄｓヴぁｖ", now(), now()),
     (2, "江ノ島デート", "じゃｋｄんさんｖ；ｓ", now(), now()),
