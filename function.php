@@ -1,9 +1,4 @@
 <?php
-//use Facebook\FacebookSession;
-//use Facebook\FacebookRequest;
-//use Facebook\GraphUser;
-//use Facebook\FacebookRequestException;
-//use Facebook\FacebookJavaScriptLoginHelper;
 
 function connectDb(){
 	try {
