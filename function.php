@@ -33,27 +33,8 @@ function emailExist($email, $dbh){
 	return $user ? true : false;
 }
 
-function userExist($facebook_id, $dbh){
-	$sql = "select * from users where facebook_id = :facebook_id limit 1";
-	$stmt = $dbh->prepare($sql);
-	$stmt->execute(array(":facebook_id" => $facebook_id));
-	$user = $stmt->fetch();
-	return $user ? true : false;
-}
-
-
-
 function getSha1Password($s){
 	return (sha1(PASSWORD_KEY.$s));
-}
-
-function getuser($a) {
-  $dbh = connectDb();
-  $sql = "select * from users where id = ".$a;
-  $stmt = $dbh->query($sql);
-  $stmt->execute;
-  $user = $stmt->fetch();
-  return $user;
 }
 
 //プランリスト
@@ -87,7 +68,7 @@ function getmemories($a) {
 //Feed
 function getfeeds($a) {
   $dbh = connectDb();
-  $sql = "select followed_id from relations where follow_id = ".$a.";";
+  $sql = "select followed_id from follows where follow_id = ".$a.";";
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $followed_ids = $stmt->fetch();
