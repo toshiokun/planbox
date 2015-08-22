@@ -73,6 +73,6 @@ var_dump($favorites);
     });
   }
 });
-</script>>
+</script>
 </body>
 </html>
