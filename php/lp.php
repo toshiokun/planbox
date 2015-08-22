@@ -6,7 +6,6 @@ require_once('function.php');
 $dbh = connectDb();
 
 $dates = getmemories(1);
-var_dump($favorites);
 
 // foreach ($dates as $date) {
 	$posts = getposts($dates[0]["id"]);
@@ -18,6 +17,7 @@ var_dump($favorites);
 		foreach ($photos as $photo) {
 	        echo '<img src="../images/'.$photo['filename'].'">';
 		}
+		echo '<br>';
 	}
 // }
 
