@@ -46,3 +46,45 @@ function getuser($a) {
   return $user;
 }
 
+//プランリスト
+function getfavcourse($a) {
+  $dbh = connectDb();
+  $sql = "select date_id from favorites where id = ".$a." and fav_flg = 1;";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $date_ids = $stmt->fetch();
+  $sql = "select * from dates where date_id IN (".implode(",",$dates_id).") order by created desc;";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $dates = $stmt->fetch();
+  return $user;
+}
+
+//思い出
+function getmemories($a) {
+  $dbh = connectDb();
+  $sql = "select id from couples where male_id = ".$a." or  female_id = ".$a.";";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $couple_id = $stmt->fetch();
+  $sql = "select * from dates where couple_id = ".$couple_id." order by created desc;";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $dates = $stmt->fetch();
+  return $user;
+}
+
+//Feed
+function getfeeds($a) {
+  $dbh = connectDb();
+  $sql = "select followed_id from relations where follow_id = ".$a.";";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $followed_ids = $stmt->fetch();
+  $sql = "select * from dates where couple_id IN (".implode(",",$followed_ids).") order by created desc;";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $dates = $stmt->fetch();
+  return $user;
+}
+
