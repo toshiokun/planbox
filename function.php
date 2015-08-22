@@ -44,39 +44,39 @@ function getfavcourse($a) {
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $date_ids = $stmt->fetch();
-  $sql = "select * from dates where date_id IN (".implode(",",$dates_id).") order by created desc";
+  $sql = "select * from dates where id IN (".implode(",",$date_ids).") order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $dates = $stmt->fetch();
-  return $user;
+  return $dates;
 }
 
 //思い出
 function getmemories($a) {
   $dbh = connectDb();
-  $sql = "select id from couples where male_id = ".$a." or  female_id = ".$a.;
+  $sql = "select id from couples where male_id = ".$a." or  female_id = ".$a;
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $couple_id = $stmt->fetch();
-  $sql = "select * from dates where couple_id = ".$couple_id." order by created desc";
+  $sql = "select * from dates where couple_id = ".$couple_id[0]." order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $dates = $stmt->fetch();
-  return $user;
+  return $dates;
 }
 
 //Feed
 function getfeeds($a) {
   $dbh = connectDb();
-  $sql = "select followed_id from follows where follow_id = ".$a.;
+  $sql = "select couple_id from follows where user_id = ".$a;
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $followed_ids = $stmt->fetch();
-  $sql = "select * from dates where couple_id IN (".implode(",",$followed_ids).") order by created desc";
+  $couple_ids = $stmt->fetch();
+  $sql = "select * from dates where couple_id IN (".implode(",",$couple_ids).") order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $dates = $stmt->fetch();
-  return $user;
+  return $dates;
 }
 
 //特集
