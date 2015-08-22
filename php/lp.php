@@ -6,7 +6,7 @@ require_once('function.php');
 $dbh = connectDb();
 
 $favorites = getmemories(1);
-var_dump($favorites);
+
 
 ?>
 
