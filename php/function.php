@@ -47,7 +47,7 @@ function getfavcourse($a) {
   $sql = "select * from dates where id IN (".implode(",",$date_ids).") order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $dates = $stmt->fetch();
+  $dates = $stmt->fetch(PDO::FETCH_ASSOC);
   return $dates;
 }
 
@@ -61,7 +61,7 @@ function getmemories($a) {
   $sql = "select * from dates where couple_id = ".$couple_id[0]." order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $dates = $stmt->fetch();
+  $dates = $stmt->fetch(PDO::FETCH_ASSOC);
   return $dates;
 }
 
@@ -75,7 +75,7 @@ function getfeeds($a) {
   $sql = "select * from dates where couple_id IN (".implode(",",$couple_ids).") order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $dates = $stmt->fetch();
+  $dates = $stmt->fetch(PDO::FETCH_ASSOC);
   return $dates;
 }
 
@@ -101,7 +101,7 @@ function getcouple($a) {
   $sql = "select * from couples where couple_id = ".$a." order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $couples = $stmt->fetch();
+  $couples = $stmt->fetch(PDO::FETCH_ASSOC);
   return $couples;
 }
 
@@ -110,6 +110,15 @@ function getdates($a) {
   $sql = "select * from dates where couple_id = ".$a." order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $dates = $stmt->fetch();
+  $dates = $stmt->fetch(PDO::FETCH_ASSOC);
+  return $dates;
+}
+
+function getposts($a) {
+  $dbh = connectDb();
+  $sql = "select * from posts where date_id = ".$a." order by created";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $dates = $stmt->fetchAll(PDO::FETCH_ASSOC); //全部のデータを取ってくる
   return $dates;
 }

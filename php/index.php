@@ -6,8 +6,10 @@ require_once('function.php');
 $dbh = connectDb();
 
 
-$favorites = getmemories(1);
+$favorites = getmemories(0);
 var_dump($favorites);
+$posts = getposts($favorites["id"]);
+var_dump($posts);
 
 ?>
 

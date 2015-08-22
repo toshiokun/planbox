@@ -46,15 +46,16 @@ create table dates (
     couple_id int not null,
     name varchar(255),
     description varchar(255),
+    yosan varchar(255),
     created datetime default null,
     modified datetime default null
 );
 
 insert into dates (couple_id, name, description, created, modified) values 
-    (1, "渋谷デート", "あｓｌ；なｓｌんヴぁんｖ", now(), now()),
-    (1, "自由が丘デート", "ｓだｖなぁんｄｓヴぁｖ", now(), now()),
-    (2, "江ノ島デート", "じゃｋｄんさんｖ；ｓ", now(), now()),
-    (2, "ベルギー旅行", "二人の初めてのデート！", now(), now());
+    (1, "渋谷デート", "晴れの日を二人で過ごしました。お金がなかったので、有名どころを回って来ました(^^)", now(), now()),
+    (1, "自由が丘デート", "オシャレな街、自由が丘。カフェや雑貨屋さんを見てきました。まったりしたい方におすすめです！！", now(), now()),
+    (2, "江ノ島デート", "夏ということで江ノ島に行ってきました！海に入らなくても江ノ島は楽しいですよ！", now(), now()),
+    (2, "ベルギー旅行", "初めての海外旅行でした。絶対に行くべき観光地をご紹介します！", now(), now());
 
 /*postsのテーブル作成*/
 create table posts(
@@ -66,9 +67,13 @@ create table posts(
 );
 
 insert into posts (date_id, content, created, modified) values 
-    (1, "ヒカリエに集合", now(), now()),
-    (1, "ハチ公前で写真撮影", now(), now()),
-    (1, "解散", now(), now()),
+    (1, "ヒカリエに集合！天気も良好◎　さすが晴れ男！！", now(), now()),
+    (1, "ハチ公前で写真撮影！いぇーい！！", now(), now()),
+    (1, "TOHOシネマで映画鑑賞！疲れてたからちょっと寝ちゃった…笑", now(), now()),
+    (1, "楽天カフェで一休み！ワンピースの音楽が永遠リピート。。。懐かしい！！", now(), now()),
+    (1, "LOFTでお買い物！二人でお揃いの手帳ゲッチュ(*^^*)", now(), now()),
+    (1, "ディナーは予約してました！美味しい料理がたくさんあって幸せだった♪", now(), now()),
+    (1, "寂しいけど、ばいばーい（泣）", now(), now()),
     (2, "ヒカリエに集合", now(), now()),
     (2, "ハチ公前で写真撮影", now(), now()),
     (2, "解散", now(), now()),

@@ -1,7 +1,7 @@
 <?php
 
 //データベース関連
-define('DSN', 'mysql:host=localhost;dbname=planbox');
+define('DSN', 'mysql:host=localhost;dbname=planbox;charset=utf8');
 define('DB_USER', 'dbuser');
 define('DB_PASSWORD', 'planbox');
 
