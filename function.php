@@ -87,7 +87,7 @@ function getspecials($a) {
 			LEFT JOIN favorites 
 			ON dates.id = favorites.date_id 
 			GROUP BY favorites.date_id
-			ORDER BY dates.id DESC
+			ORDER BY COUNT(*) DESC
 			LIMIT 20;";
   $stmt = $dbh->query($sql);
   $stmt->execute;
