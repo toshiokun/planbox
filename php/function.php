@@ -47,7 +47,7 @@ function getfavcourse($a) {
   $sql = "select * from dates where id IN (".implode(",",$date_ids).") order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $dates = $stmt->fetch(PDO::FETCH_ASSOC);
+  $dates = $stmt->fetchAll(PDO::FETCH_ASSOC);
   return $dates;
 }
 
@@ -58,10 +58,10 @@ function getmemories($a) {
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $couple_id = $stmt->fetch();
-  $sql = "select * from dates where couple_id = ".$couple_id[0]." order by created desc";
+  $sql = "select * from dates where couple_id = ".$couple_id['id']." order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $dates = $stmt->fetch(PDO::FETCH_ASSOC);
+  $dates = $stmt->fetchAll(PDO::FETCH_ASSOC);
   return $dates;
 }
 
@@ -75,7 +75,7 @@ function getfeeds($a) {
   $sql = "select * from dates where couple_id IN (".implode(",",$couple_ids).") order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $dates = $stmt->fetch(PDO::FETCH_ASSOC);
+  $dates = $stmt->fetchAll(PDO::FETCH_ASSOC);
   return $dates;
 }
 
@@ -101,7 +101,7 @@ function getcouple($a) {
   $sql = "select * from couples where couple_id = ".$a." order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $couples = $stmt->fetch(PDO::FETCH_ASSOC);
+  $couple = $stmt->fetch(PDO::FETCH_ASSOC);
   return $couples;
 }
 
@@ -110,7 +110,7 @@ function getdates($a) {
   $sql = "select * from dates where couple_id = ".$a." order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $dates = $stmt->fetch(PDO::FETCH_ASSOC);
+  $dates = $stmt->fetchAll(PDO::FETCH_ASSOC);
   return $dates;
 }
 
@@ -119,6 +119,24 @@ function getposts($a) {
   $sql = "select * from posts where date_id = ".$a." order by created";
   $stmt = $dbh->query($sql);
   $stmt->execute;
-  $dates = $stmt->fetchAll(PDO::FETCH_ASSOC); //全部のデータを取ってくる
+  $dates = $stmt->fetchAll(PDO::FETCH_ASSOC);
   return $dates;
+}
+
+function getlocation($a) {
+  $dbh = connectDb();
+  $sql = "select location from posts where date_id = ".$a." limit 1";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $dates = $stmt->fetch();
+  return $dates['location'];
+}
+
+function getphotos($a) {
+  $dbh = connectDb();
+  $sql = "select * from photos where post_id = ".$a;
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $photos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  return $photos;
 }

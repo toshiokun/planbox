@@ -37,8 +37,8 @@ create table couples (
 );
 
 insert into couples (male_id, female_id) values 
-    (0, 5),
-    (1, 4);
+    (1, 6),
+    (2, 5);
 
 /*datesのテーブル作成*/
 create table dates (
@@ -46,7 +46,7 @@ create table dates (
     couple_id int not null,
     name varchar(255),
     description varchar(255),
-    yosan varchar(255),
+    budget varchar(255),
     created datetime default null,
     modified datetime default null
 );
@@ -62,36 +62,47 @@ create table posts(
     id int not null auto_increment primary key,
     date_id int not null,
     content varchar(255) not null,
+    location varchar(255),
     created datetime default null,
     modified datetime default null
 );
 
-insert into posts (date_id, content, created, modified) values 
-    (1, "ヒカリエに集合！天気も良好◎　さすが晴れ男！！", now(), now()),
-    (1, "ハチ公前で写真撮影！いぇーい！！", now(), now()),
-    (1, "TOHOシネマで映画鑑賞！疲れてたからちょっと寝ちゃった…笑", now(), now()),
-    (1, "楽天カフェで一休み！ワンピースの音楽が永遠リピート。。。懐かしい！！", now(), now()),
-    (1, "LOFTでお買い物！二人でお揃いの手帳ゲッチュ(*^^*)", now(), now()),
-    (1, "ディナーは予約してました！美味しい料理がたくさんあって幸せだった♪", now(), now()),
-    (1, "寂しいけど、ばいばーい（泣）", now(), now()),
-    (2, "ヒカリエに集合", now(), now()),
-    (2, "ハチ公前で写真撮影", now(), now()),
-    (2, "解散", now(), now()),
-    (3, "ヒカリエに集合", now(), now()),
-    (3, "ハチ公前で写真撮影", now(), now()),
-    (3, "解散", now(), now()),
-    (4, "ヒカリエに集合", now(), now()),
-    (4, "ハチ公前で写真撮影", now(), now()),
-    (4, "解散", now(), now());
+insert into posts (date_id, content, location, created, modified) values 
+    (1, "ヒカリエに集合！天気も良好◎　さすが晴れ男！！", "渋谷", now(), now()),
+    (1, "ハチ公前で写真撮影！いぇーい！！", "渋谷", now(), now()),
+    (1, "TOHOシネマで映画鑑賞！疲れてたからちょっと寝ちゃった…笑", "渋谷", now(), now()),
+    (1, "楽天カフェで一休み！ワンピースの音楽が永遠リピート。。。懐かしい！！", "渋谷", now(), now()),
+    (1, "LOFTでお買い物！二人でお揃いの手帳ゲッチュ(*^^*)カラクリすごかった！！", "渋谷", now(), now()),
+    (1, "ディナーは予約してました！美味しい料理がたくさんあって幸せだった♪", "原宿", now(), now()),
+    (1, "寂しいけど、ばいばーい（泣）夜景すごくキレイだった！！", "表参道", now(), now()),
+    (2, "ヒカリエに集合", '', now(), now()),
+    (2, "ハチ公前で写真撮影", '', now(), now()),
+    (2, "解散", '', now(), now()),
+    (3, "ヒカリエに集合", '', now(), now()),
+    (3, "ハチ公前で写真撮影", '', now(), now()),
+    (3, "解散", '', now(), now()),
+    (4, "ヒカリエに集合", '', now(), now()),
+    (4, "ハチ公前で写真撮影", '', now(), now()),
+    (4, "解散", '', now(), now());
 
 /*photosのテーブル作成*/
 create table photos (
     id int not null auto_increment primary key,
     post_id int,
-    photo_url varchar(255),
+    filename varchar(255),
     created datetime default null,
     modified datetime default null
 );
+
+insert into photos (post_id, filename, created, modified) values 
+    (1, 'hikarie.jpg', now(), now()),
+    (2, 'hachiko.jpg', now(), now()),
+    (3, 'tohocinema.jpeg', now(), now()),
+    (4, 'rakutencafe_inner.jpg', now(), now()),
+    (4, 'rakutencafe_outer.jpg', now(), now()),
+    (5, 'loft.jpg', now(), now()),
+    (6, 'dinner.jpg', now(), now()),
+    (7, 'omotesando.jpg', now(), now());
 
 /*countriesのテーブル作成*/
 create table favorites (
