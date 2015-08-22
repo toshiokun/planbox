@@ -17,5 +17,7 @@ if (empty($favorite)) {
 	$stmt = $dbh->query($sql);
 	$stmt->execute;
 } else {
-
+	$sql = "update favorites set fav_flg = ".!$fav_flg" where user_id = ".$user_id" and date_id = ".$date_id;
+	$stmt = $dbh->query($sql);
+	$stmt->execute;
 }
