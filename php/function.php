@@ -95,3 +95,21 @@ function getspecials($a) {
   return $specials;
 }
 
+//他のカップルの情報取得
+function getcouple($a) {
+  $dbh = connectDb();
+  $sql = "select * from couples where couple_id = ".$a." order by created desc";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $couples = $stmt->fetch();
+  return $couples;
+}
+
+function getdates($a) {
+  $dbh = connectDb();
+  $sql = "select * from dates where couple_id = ".$a." order by created desc";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $dates = $stmt->fetch();
+  return $dates;
+}

@@ -51,10 +51,10 @@ create table dates (
 );
 
 insert into dates (couple_id, name, content, created, modified) values 
-    (0, "渋谷デート", "あｓｌ；なｓｌんヴぁんｖ", now(), now()),
-    (0, "自由が丘デート", "ｓだｖなぁんｄｓヴぁｖ", now(), now()),
-    (1, "江ノ島デート", "じゃｋｄんさんｖ；ｓ", now(), now()),
-    (1, "ベルギー旅行", "二人の初めてのデート！", now(), now());
+    (1, "渋谷デート", "あｓｌ；なｓｌんヴぁんｖ", now(), now()),
+    (1, "自由が丘デート", "ｓだｖなぁんｄｓヴぁｖ", now(), now()),
+    (2, "江ノ島デート", "じゃｋｄんさんｖ；ｓ", now(), now()),
+    (2, "ベルギー旅行", "二人の初めてのデート！", now(), now());
 
 /*postsのテーブル作成*/
 create table posts(
@@ -66,9 +66,6 @@ create table posts(
 );
 
 insert into posts (date_id, content, created, modified) values 
-    (0, "ヒカリエに集合", now(), now()),
-    (0, "ハチ公前で写真撮影", now(), now()),
-    (0, "解散", now(), now()),
     (1, "ヒカリエに集合", now(), now()),
     (1, "ハチ公前で写真撮影", now(), now()),
     (1, "解散", now(), now()),
@@ -77,7 +74,10 @@ insert into posts (date_id, content, created, modified) values
     (2, "解散", now(), now()),
     (3, "ヒカリエに集合", now(), now()),
     (3, "ハチ公前で写真撮影", now(), now()),
-    (3, "解散", now(), now());
+    (3, "解散", now(), now()),
+    (4, "ヒカリエに集合", now(), now()),
+    (4, "ハチ公前で写真撮影", now(), now()),
+    (4, "解散", now(), now());
 
 /*photosのテーブル作成*/
 create table photos (
@@ -99,13 +99,13 @@ create table favorites (
   );
 
 insert into favorites (fav_flg, user_id, date_id, created, modified) values 
-    (1, 0, 2, now(), now()),
-    (1, 0, 3, now(), now()),
-    (1, 1, 0, now(), now()),
-    (1, 1, 1, now(), now()),
+    (1, 1, 3, now(), now()),
+    (1, 1, 4, now(), now()),
+    (1, 2, 1, now(), now()),
     (1, 2, 2, now(), now()),
-    (1, 2, 3, now(), now()),
-    (1, 2, 4, now(), now());
+    (1, 3, 2, now(), now()),
+    (1, 3, 3, now(), now()),
+    (1, 3, 4, now(), now());
 
 /*followsのテーブル作成*/
 create table follows (
@@ -118,10 +118,10 @@ create table follows (
   );
 
 insert into follows (fav_flg, user_id, couple_id, created, modified) values 
-    (1, 0, 1, now(), now()),
-    (1, 1, 0, now(), now()),
-    (1, 2, 0, now(), now()),
+    (1, 1, 2, now(), now()),
     (1, 2, 1, now(), now()),
-    (1, 3, 0, now(), now()),
+    (1, 3, 2, now(), now()),
     (1, 3, 1, now(), now()),
-    (1, 4, 0, now(), now());
+    (1, 4, 2, now(), now()),
+    (1, 4, 1, now(), now()),
+    (1, 5, 2, now(), now());
