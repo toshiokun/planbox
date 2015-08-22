@@ -47,15 +47,6 @@ function getSha1Password($s){
 	return (sha1(PASSWORD_KEY.$s));
 }
 
-function getuser($a) {
-  $dbh = connectDb();
-  $sql = "select * from users where id = ".$a;
-  $stmt = $dbh->query($sql);
-  $stmt->execute;
-  $user = $stmt->fetch();
-  return $user;
-}
-
 //プランリスト
 function getfavcourse($a) {
   $dbh = connectDb();
@@ -87,7 +78,7 @@ function getmemories($a) {
 //Feed
 function getfeeds($a) {
   $dbh = connectDb();
-  $sql = "select followed_id from relations where follow_id = ".$a.";";
+  $sql = "select followed_id from follows where follow_id = ".$a.";";
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $followed_ids = $stmt->fetch();
