@@ -7,7 +7,7 @@ $user_id = $_POST['user_id'];
 $date_id = $_POST['date_id'];
 
 $dbh = connectDb();
-$sql = "select * from favorites where user_id = ".$fav_flg." and date_id = ".$user_id;
+$sql = "select * from favorites where user_id = ".$user_id." and date_id = ".$date_id;
 $stmt = $dbh->query($sql);
 $stmt->execute;
 $favorite = $stmt->fetch();
