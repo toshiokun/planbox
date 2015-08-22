@@ -45,7 +45,7 @@ create table dates (
     id int not null auto_increment primary key,
     couple_id int not null,
     name varchar(255),
-    content varchar(255),
+    description varchar(255),
     created datetime default null,
     modified datetime default null
 );
