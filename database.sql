@@ -1,6 +1,6 @@
 create database planbox character set utf8;
 
-grant all on connect.* to dbuser@localhost identified by 'planbox';
+grant all on planbox.* to dbuser@localhost identified by 'planbox';
 
 use planbox;
 
@@ -67,7 +67,6 @@ create table favorites (
 create table relationships (
     id int not null auto_increment primary key,
     fav_flg int,
-    follow_id int,
     follow_id int,
     created datetime default null,
     modified datetime default null
