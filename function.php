@@ -40,11 +40,11 @@ function getSha1Password($s){
 //プランリスト
 function getfavcourse($a) {
   $dbh = connectDb();
-  $sql = "select date_id from favorites where id = ".$a." and fav_flg = 1;";
+  $sql = "select date_id from favorites where id = ".$a." and fav_flg = 1";
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $date_ids = $stmt->fetch();
-  $sql = "select * from dates where date_id IN (".implode(",",$dates_id).") order by created desc;";
+  $sql = "select * from dates where date_id IN (".implode(",",$dates_id).") order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $dates = $stmt->fetch();
@@ -54,11 +54,11 @@ function getfavcourse($a) {
 //思い出
 function getmemories($a) {
   $dbh = connectDb();
-  $sql = "select id from couples where male_id = ".$a." or  female_id = ".$a.";";
+  $sql = "select id from couples where male_id = ".$a." or  female_id = ".$a.;
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $couple_id = $stmt->fetch();
-  $sql = "select * from dates where couple_id = ".$couple_id." order by created desc;";
+  $sql = "select * from dates where couple_id = ".$couple_id." order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $dates = $stmt->fetch();
@@ -68,11 +68,11 @@ function getmemories($a) {
 //Feed
 function getfeeds($a) {
   $dbh = connectDb();
-  $sql = "select followed_id from follows where follow_id = ".$a.";";
+  $sql = "select followed_id from follows where follow_id = ".$a.;
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $followed_ids = $stmt->fetch();
-  $sql = "select * from dates where couple_id IN (".implode(",",$followed_ids).") order by created desc;";
+  $sql = "select * from dates where couple_id IN (".implode(",",$followed_ids).") order by created desc";
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $dates = $stmt->fetch();
