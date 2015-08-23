@@ -111,13 +111,7 @@ $dates = getfeeds(1);
 
 <section id="cd-timeline" class="cd-container">
     <div class="container">
-<<<<<<< HEAD
-        
-
-=======
-
     <?php foreach ($dates as $date) { ?>
->>>>>>> 0b747cb9493fdc2c098e5f4921bd93edec2aeba6
         <div class="cd-timeline-block">
             <div class="cd-timeline-img cd-picture" style="margin-left:-44px;">
                 <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
@@ -195,13 +189,7 @@ $dates = getfeeds(1);
             </div> <!-- cd-timeline-content -->
             </a>
         </div> <!-- cd-timeline-block -->
-<<<<<<< HEAD
-
-
-=======
         <?php } ?>
-        
->>>>>>> 0b747cb9493fdc2c098e5f4921bd93edec2aeba6
 
         
         

@@ -11,6 +11,7 @@ create table users (
     name varchar(255),
     password varchar(255),
     photo varchar(255),
+    baithday varchar(255),
     age int
 );
 
@@ -33,6 +34,10 @@ create table couples (
     start_date date, 
     cover_url varchar(255),
     profile_url varchar(255),
+    often_area varchar(255),
+    often_place varchar(255),
+    relationship varchar(255),
+    anniversary varchar(255),
     created datetime default null,
     modified datetime default null
 );
