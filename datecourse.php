@@ -59,6 +59,7 @@ $j = 0;
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <script src="vertical-timeline/js/modernizr.js"></script> <!-- Modernizr -->
 
     </head>
 
@@ -278,6 +279,7 @@ $j = 0;
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script src="vertical-timeline/js/main.js"></script> <!-- Resource jQuery -->
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>

@@ -5,8 +5,7 @@ require_once('function.php');
 //データベースに接続
 $dbh = connectDb();
 
-$new = new DateTime();
-setPost("CFkazu", "hoge", $new, "img/url")
+setFavorite(1, 9);
 
 ?>
 

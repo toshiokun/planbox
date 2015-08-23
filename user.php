@@ -62,7 +62,6 @@ $dates = getdates($couple_id);
 
         <div class="brand">Couple</div>
 
-
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
             <div class="container">
