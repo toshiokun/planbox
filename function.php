@@ -193,11 +193,8 @@ function setPost($name, $text, $created_at, $post_url){
     $sql = "insert into posts (date_id,  content, created, modified) values (".$date["id"].", '$text', NOW(), NOW())";
     $stmt = $dbh->query($sql);
     $stmt->execute;
-    $sql = "select * from posts where date_id = ".$date["id"];
-    $stmt = $dbh->query($sql);
-    $stmt->execute;
-    $post = $stmt->fetch();
-    setPhoto($post["id"], $post_url);
+    $lastId = $dbh->lastInsertId();
+    setPhoto($lastId, $post_url);
   }
 }
 
