@@ -64,7 +64,7 @@ $j = 0;
     </head>
 
     <body>
-    
+
         <div class="brand">Date Plan</div>
         <div class="address-bar">気になるデートを詳しくチェック！</div>
 
@@ -170,73 +170,74 @@ $j = 0;
                         <span class="icon-next"></span>
                     </a>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                 </br>
+                <div class="col-lg-6">
                     <h2 class="intro-text text-center">
                         <i class="fa fa-clock-o"></i>
                         当日のスケジュール
                     </h2>
                 </div>
-                <div class="col-lg-8">
-                    <div class="col-sm-6">
-                        <?php foreach($posts as $post) { ?>
-                        <?php $i = $i + 1; ?>
-                        <p><a href="#tweet<?php echo $i;?>"><?php print date("n/j G:i", strtotime($post['created']));?> @ <?php echo $post['location']; ?> </a></p>
-                        <?php } ?>
-                    </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <?php foreach($posts as $post) { ?>
+                    <?php $i = $i + 1; ?>
+                    <p><a href="#tweet<?php echo $i;?>"><?php print date("n/j G:i", strtotime($post['created']));?> @ <?php echo $post['location']; ?> </a></p>
+                    <?php } ?>
                 </div>
-                <div class="col-lg-4">
-                    <div class="col-sm-6">
-                        <p>行きたい！</p>
-                        <p>フォロー</p>
-                        <p>コメントする</p>
-                    </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="col-sm-12 btn-group" role="group">
+                    <button type="button" class="col-sm-4 btn btn-default"><i class="fa fa-heart"></i>行きたい！</button>
+                    <button type="button" class="col-sm-4 btn btn-default">フォロー</button>
+                    <button type="button" class="col-sm-4 btn btn-default">コメント</button>
+                </div>
+                            
                 </div>
             </div>
         </div>
-    </div>
+        <section id="cd-timeline" class="cd-container">
 
-    <section id="cd-timeline" class="cd-container">
+            <?php foreach ($posts as $post) { ?>
+            <?php $j = $j + 1; ?>
+            <div class="cd-timeline-block">
+                <div class="cd-timeline-img cd-picture" style="margin-left:-32px;">
+                    <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
+                </div> <!-- cd-timeline-img -->
+                <a href="https://www.google.com/">
+                    <div class="cd-timeline-content"  style="width:90%!important;">
 
-        <?php foreach ($posts as $post) { ?>
-        <?php $j = $j + 1; ?>
-        <div class="cd-timeline-block">
-            <div class="cd-timeline-img cd-picture" style="margin-left:-32px;">
-                <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
-            </div> <!-- cd-timeline-img -->
-            <a href="https://www.google.com/">
-                <div class="cd-timeline-content"  style="width:90%!important;">
+                        <div class="row" id="tweet<?php echo $j;?>">
+                            <div class="box">
+                                <div class="col-lg-12" style="">
+                                    <div class="row"　style="position: relative;">
+                                        <div class="col-sm-5" style="width: 330px;
+                                        height: 250px; ">
+                                        <img class="img-responsive img-border img-left" src="<?php echo getphotos($post['id'])[0]['filename']; ?>" alt="" style="width:auto;height:220px;
+                                        position: absolute;
+                                        top: 0;
+                                        bottom: 0;
+                                        margin: auto 0 auto 10px;
 
-                    <div class="row" id="tweet<?php echo $j;?>">
-                        <div class="box">
-                            <div class="col-lg-12" style="">
-                                <div class="row"　style="position: relative;">
-                                    <div class="col-sm-5" style="width: 330px;
-                                    height: 250px; ">
-                                    <img class="img-responsive img-border img-left" src="<?php echo getphotos($post['id'])[0]['filename']; ?>" alt="" style="width:auto;height:220px;
-                                    position: absolute;
-                                    top: 0;
-                                    bottom: 0;
-                                    margin: auto 0 auto 10px;
-
-                                    ">
-                                </div>
-                                <div class="col-sm-7">
-
-                                    <div class="row">
-                                        <div class="col-sm-offset-1 text-center col-sm-offset-1">
-                                            <p>
-                                                <?php echo $post['content']; ?>
-                                            </p>
-                                        </div>
+                                        ">
                                     </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-offset-3  col-sm-offset-3">
-                                            <i class="fa fa-map-marker fa-2x"></i>
-                                            <span style="font-size:20px;font-weight: bold;">
-                                                <?php echo $post['location']; ?>
-                                            </span>
+                                    <div class="col-sm-7">
+
+                                        <div class="row">
+                                            <div class="col-sm-offset-1 text-center col-sm-offset-1">
+                                                <p>
+                                                    <?php echo $post['content']; ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-offset-3  col-sm-offset-3">
+                                                <i class="fa fa-map-marker fa-2x"></i>
+                                                <span style="font-size:20px;font-weight: bold;">
+                                                    <?php echo $post['location']; ?>
+                                                </span>
                                                 <i class="fa fa-clock-o fa-2x"></i>
                                                 <span style="font-size:20px;font-weight: bold;">
                                                     <?php print date("n/j G:i", strtotime($post['created'])); ?></span>
@@ -270,6 +271,18 @@ $j = 0;
                             <input type="hidden" name="user_id" value="1"></input>
                             <input type="hidden" name="date_id" value="<?php echo $date_id; ?>"></input>
                             <input type="submit" value="行きたい！"></input></form></p>
+<<<<<<< HEAD
+                        </li>
+                        <li class="col-sm-4">
+                            <p>フォロー</p>
+                        </li>
+                        <li class="col-sm-4">
+                            <p>コメント</p>
+                        </li>
+                    </div>
+                </nav>
+
+=======
                     </li >
                     <li class="col-sm-4">
                         <p><form action="follow.php" method="post">
@@ -282,23 +295,25 @@ $j = 0;
                     </li>
         </div>
     </nav>
+>>>>>>> 2472b098b7f2667455e76e0e6df65376645f2e40
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <script src="vertical-timeline/js/main.js"></script> <!-- Resource jQuery -->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+                <!-- jQuery -->
+                <script src="js/jquery.js"></script>
+                <script src="vertical-timeline/js/main.js"></script> <!-- Resource jQuery -->
 
-    <!-- Script to Activate the Carousel -->
-    <script>
-        $('.carousel').carousel({
+                <!-- Bootstrap Core JavaScript -->
+                <script src="js/bootstrap.min.js"></script>
+
+                <!-- Script to Activate the Carousel -->
+                <script>
+                    $('.carousel').carousel({
         interval: 5000 //changes the speed
     })
-    </script>
-    <script >
-        $(function(){
-            $('a[href^=#]').click(function(){ 
+                </script>
+                <script >
+                    $(function(){
+                        $('a[href^=#]').click(function(){ 
             var speed = 500; //移動完了までの時間(sec)を指定
             var href= $(this).attr("href"); 
             var target = $(href == "#" || href == "" ? 'html' : href);
@@ -306,8 +321,8 @@ $j = 0;
             $("html, body").animate({scrollTop:position}, speed, "swing");
             return false;
         });
-        });
-    </script>
-</body>
+                    });
+                </script>
+            </body>
 
-</html>
+            </html>
