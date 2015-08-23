@@ -164,7 +164,7 @@ $dates = getfeeds(1);
                                         </div>
                                         <br>
                                         <div class="row" style="margin-top:10px;">
-                                            <a href="user.php">
+                                            <a href="user.php?id=<?php echo getcouple($date['couple_id'])['id'] ;?>">
                                             <div class="col-sm-offset-2 col-sm-5">
                                                 <img class="img-responsive img-border img-left" src="user_images/<?php echo getuser(getcouple($date['couple_id'])['male_id'])['photo']; ?>" alt="" style="width:60px;height:auto; 
                                                 ">

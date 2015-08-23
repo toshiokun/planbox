@@ -1,3 +1,22 @@
+<? 
+require_once('config.php');
+require_once('function.php');
+
+if ($_GET['id']) {
+    $couple_id = $_GET['id'];
+} else {
+    $couple_id = 1;
+}
+
+//データベースに接続
+$dbh = connectDb();
+
+//カップルの取得
+$couple = getcouple($couple_id);
+$dates = getdates($couple_id);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -144,16 +163,14 @@
                     <div class="box">
                         <div class="row">
                             <div class="col-sm-6">
-                                <img class="userIcon" src="img/kohei.jpg" alt="">
-                                    <p>こーへい</p>
-                                    <p>@k0hei000</p>
-                                    <p>1992/02/03</p>
+                                <img class="userIcon" src="user_images/<?php echo getuser($couple['male_id'])['photo']; ?>" alt="">
+                                    <p><?php getuser($couple['male_id'])['name']; ?></p>
+                                    <p><?php print date("Y/n/j", strtotime(getuser($couple['male_id'])['birthday'])); ?></p>
                             </div>
                             <div class="col-sm-6">
-                                <img class="userIcon" src="img/aragaki.jpg" alt="">
-                                    <p>ゆい</p>
-                                    <p>@lespros_aragaki</p>
-                                    <p>1988/05/27</p>
+                                <img class="userIcon" src="user_images/<?php echo getuser($couple['female_id'])['photo']; ?>" alt="">
+                                    <p><?php getuser($couple['female_id'])['name']; ?></p>
+                                    <p><?php print date("Y/n/j", strtotime(getuser($couple['female_id'])['birthday'])); ?></p>
                             </div>
                         </div>
                     </div>
@@ -163,17 +180,17 @@
                     <div class="box">
                     <ul class="" style="width:100%;">
                         <li class="">
-                            <span style="font-size:20px;font-weight: bold;">よく行く地域 :  横浜、湘南</span>
+                            <span style="font-size:20px;font-weight: bold;">よく行く地域 :  <?php echo $couple['often_area']; ?></span>
                         </li>           
                         <li class="">
-                            <span style="font-size:20px;font-weight: bold;">よく行くデートスポット :　遊園地、カフェ</span>
+                            <span style="font-size:20px;font-weight: bold;">よく行くデートスポット :　<?php echo $couple['often_place']; ?></span>
                         </li>
                         <li class="">
-                            <span style="font-size:20px;font-weight: bold;">二人の関係 :  恋人</span>
+                            <span style="font-size:20px;font-weight: bold;">二人の関係 :  <?php echo $couple['relationship']; ?></span>
                         </li>     
                         <li class="">
                             <i class="fa fa-heart"></i>
-                            <span style="font-size:20px;font-weight: bold;">カップル記念日 :  201X/ 12 / 24</span>
+                            <span style="font-size:20px;font-weight: bold;">カップル記念日 :  <?php echo $couple['anniversary']?></span>
                         </li>     
                     </ul>
                     </div>      
@@ -186,8 +203,7 @@
 
         <section id="cd-timeline" class="cd-container tweets">
             <div class="container">
-
-
+                <?php foreach ($dates as $date) { ?>
                 <div class="cd-timeline-block">
                     <div class="cd-timeline-img cd-picture" style="margin-left:-44px;">
                         <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
@@ -200,19 +216,19 @@
                                         <div class="row"　style="position: relative;">
                                             <div class="col-sm-5" style="width: 400px;
                                             height: 380px; ">
-                                            <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
+                                            <img class="img-responsive img-border img-left" src="images/<?php echo getphotos(getposts($date["id"])[0]["id"])[0]["filename"] ?>" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
                                         </div>
                                         <div class="col-sm-7">
                                             <hr>
                                             <h3 class="intro-text text-center">
                                                 <i class="fa fa-map-marker fa-2x"></i>
-                                                江の島デート
+                                                <?php echo $date['name']; ?>
                                             </h3>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
                                                     <p>
-                                                        朝から江の島へドライブでGO!昼ご飯はしらす丼を食べ、綺麗な夕焼け見て帰って来ましたー！
+                                                        <?php echo $date['description']; ?>
                                                     </p>
                                                 </div>
                                             </div>
@@ -221,12 +237,14 @@
                                                 <div class="col-sm-5 text-center">
                                                     <i class="fa fa-map-marker fa-2x"></i>
                                                     <span style="font-size:20px;font-weight: bold;">
-                                                        神奈川県江の島</span>
+                                                        <?php echo getlocation($date['id']); ?>
+                                                    </span>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <i class="fa fa-jpy fa-2x"></i>
                                                         <span style="font-size:20px;font-weight: bold;">
-                                                            4000</span>
+                                                            <?php echo $date['budget']; ?>
+                                                        </span>
                                                         </div>
                                                         <div class="col-sm-4">
                                                             <i class="fa fa-heart fa-2x"></i>
@@ -237,19 +255,19 @@
                                                    </div>
                                                    <br>
                                                    <div class="row" style="margin-top:10px;">
-                                                    <a href="user.php">
+                                                    <a href="user.php?id=<?php echo $couple['id'] ;?>">
                                                         <div class="col-sm-offset-2 col-sm-5">
-                                                            <img class="img-responsive img-border img-left" src="img/kohei.jpg" alt="" style="width:60px;height:auto; 
+                                                            <img class="img-responsive img-border img-left" src="user_images/<?php echo getuser($couple['male_id'])['photo']; ?>" alt="" style="width:60px;height:auto; 
                                                             ">
                                                             <span style="font-size:20px;font-weight: bold; margin:12px auto 12px 0; display:block;">
-                                                                @k0hei000</span>
+                                                                <?php echo getuser($couple['male_id'])['name'];?></span>
 
                                                             </div>
                                                             <div class="col-sm-5">
-                                                                <img class="img-responsive img-border img-left" src="img/aragaki.jpg" alt="" style="width:60px;height:auto; 
+                                                                <img class="img-responsive img-border img-left" src="user_images/<?php echo getuser($couple['female_id'])['photo']; ?>" alt="" style="width:60px;height:auto; 
                                                                 ">
                                                                 <span style="font-size:20px;font-weight: bold; margin:12px auto; display:block;">
-                                                                    @gakki123</span>
+                                                                    <?php echo getuser($couple['female_id'])['name'];?></span>
                                                                 </div>
                                                             </a>
                                                         </div>
@@ -262,87 +280,7 @@
                                 </div> <!-- cd-timeline-content -->
                             </a>
                         </div> <!-- cd-timeline-block -->
-
-
-
-                <div class="cd-timeline-block">
-                    <div class="cd-timeline-img cd-picture" style="margin-left:-44px;">
-                        <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
-                    </div> <!-- cd-timeline-img -->
-                    <a href="https://www.google.com/"　style="">
-                        <div class="cd-timeline-content"  style="width:90%!important;">
-                            <div class="row">
-                                <div class="box">
-                                    <div class="col-lg-12" style="">
-                                        <div class="row"　style="position: relative;">
-                                            <div class="col-sm-5" style="width: 400px;
-                                            height: 380px; ">
-                                            <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
-                                        </div>
-                                        <div class="col-sm-7">
-                                            <hr>
-                                            <h3 class="intro-text text-center">
-                                                <i class="fa fa-map-marker fa-2x"></i>
-                                                江の島デート
-                                            </h3>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
-                                                    <p>
-                                                        朝から江の島へドライブでGO!昼ご飯はしらす丼を食べ、綺麗な夕焼け見て帰って来ましたー！
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-5 text-center">
-                                                    <i class="fa fa-map-marker fa-2x"></i>
-                                                    <span style="font-size:20px;font-weight: bold;">
-                                                        神奈川県江の島</span>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <i class="fa fa-jpy fa-2x"></i>
-                                                        <span style="font-size:20px;font-weight: bold;">
-                                                            4000</span>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <i class="fa fa-heart fa-2x"></i>
-                                                            <span style="font-size:20px;font-weight: bold;">
-                                                               行きたい <span class="badge" style="font-size:18px">4</span>
-                                                           </span>
-                                                       </div>
-                                                   </div>
-                                                   <br>
-                                                   <div class="row" style="margin-top:10px;">
-                                                    <a href="user.php">
-                                                        <div class="col-sm-offset-2 col-sm-5">
-                                                            <img class="img-responsive img-border img-left" src="img/kohei.jpg" alt="" style="width:60px;height:auto; 
-                                                            ">
-                                                            <span style="font-size:20px;font-weight: bold; margin:12px auto 12px 0; display:block;">
-                                                                @k0hei000</span>
-
-                                                            </div>
-                                                            <div class="col-sm-5">
-                                                                <img class="img-responsive img-border img-left" src="img/aragaki.jpg" alt="" style="width:60px;height:auto; 
-                                                                ">
-                                                                <span style="font-size:20px;font-weight: bold; margin:12px auto; display:block;">
-                                                                    @gakki123</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span class="cd-date" style=" font-weight:bold;color:white;">Jan 14</span>
-                                </div> <!-- cd-timeline-content -->
-                            </a>
-                        </div> <!-- cd-timeline-block -->
-
-
-
-
+                        <?php } ?>
 
                     </div>
                 </section>
