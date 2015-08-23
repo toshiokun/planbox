@@ -185,14 +185,20 @@ function setPost($name, $text, $created_at, $post_url){
     $stmt->execute;
     $date = $stmt->fetch();
   }
-  $sql = "insert into posts (date_id,  content, created, modified) values (".$date["id"].", '$text', NOW(), NOW())";
-  $stmt = $dbh->query($sql);
-  $stmt->execute;
-  $sql = "select * from posts where date_id = ".$date["id"];
+  $sql = "select * from posts where content = '$text' and date_id = ".$date["id"];
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $post = $stmt->fetch();
-  setPhoto($post["id"], $post_url);
+  if (empty($post)){
+    $sql = "insert into posts (date_id,  content, created, modified) values (".$date["id"].", '$text', NOW(), NOW())";
+    $stmt = $dbh->query($sql);
+    $stmt->execute;
+    $sql = "select * from posts where date_id = ".$date["id"];
+    $stmt = $dbh->query($sql);
+    $stmt->execute;
+    $post = $stmt->fetch();
+    setPhoto($post["id"], $post_url);
+  }
 }
 
 function setPhoto($post_id, $filename){
