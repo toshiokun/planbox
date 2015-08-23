@@ -42,6 +42,10 @@
     </head>
 
     <body>
+    
+        <div class="brand">Date Plan</div>
+        <div class="address-bar">気になるデートを詳しくチェック！</div>
+
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
             <div class="container">
@@ -73,9 +77,6 @@
                         </li>
                         <li>
                             <a href="column.php">Column</a>
-                        </li>
-                        <li>
-                            <a href="recommend.php">Recommend</a>
                         </li>
                         <li>
                             <a href="setting.php">Setting</a>
@@ -225,28 +226,82 @@
                     </div> <!-- cd-timeline-content -->
                 </a>
             </div> <!-- cd-timeline-block -->
+
+             <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-picture" style="margin-left:-32px;">
+                <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
+            </div> <!-- cd-timeline-img -->
+            <a href="https://www.google.com/">
+                <div class="cd-timeline-content"  style="width:90%!important;">
+
+                    <div class="row" id="tweet1">
+                        <div class="box">
+                            <div class="col-lg-12" style="">
+                                <div class="row"　style="position: relative;">
+                                    <div class="col-sm-5" style="width: 330px;
+                                    height: 250px; ">
+                                    <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" style="width:auto;height:220px;
+                                    position: absolute;
+                                    top: 0;
+                                    bottom: 0;
+                                    margin: auto 0 auto 10px;
+
+                                    ">
+                                </div>
+                                <div class="col-sm-7">
+
+                                    <div class="row">
+                                        <div class="col-sm-offset-1 text-center col-sm-offset-1">
+                                            <p>
+                                                サービスエリア到着！アイスおいしー
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-offset-3  col-sm-offset-3">
+                                            <i class="fa fa-map-marker fa-2x"></i>
+                                            <span style="font-size:20px;font-weight: bold;">
+                                                下田ジャンクション
+                                                　</span>
+                                                <i class="fa fa-clock-o fa-2x"></i>
+                                                <span style="font-size:20px;font-weight: bold;">
+                                                    7/12 10:26</span>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- cd-timeline-content -->
+                </a>
+            </div> <!-- cd-timeline-block -->
         </section>
 
 
     </div>
     <!-- /.container -->
 
-    <footer id="footer">
-        <div class="inner">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 text-center">
-                    <p>行きたい！</p>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <p>フォロー</p>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <p>コメント</p>
-                </div>
+    
 
-            </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" style="width:100%;">
+                    <li class="col-sm-4">
+                        <p>行きたい！</p>
+                    </li >
+                    <li class="col-sm-4">
+                        <p>フォロー</p>
+                    </li>
+                    <li class="col-sm-4">
+                        <p>コメント</p>
+                    </li>
         </div>
-    </footer>
+    </nav>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
