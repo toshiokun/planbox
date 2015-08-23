@@ -117,7 +117,7 @@ $dates = getfeeds(1);
             <div class="cd-timeline-img cd-picture" style="margin-left:-44px;">
                 <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
             </div> <!-- cd-timeline-img -->
-            <a href="https://www.google.com/"　style="">
+            <a href="datecourse.php?id=<?php echo $date['id']; ?>"　style="">
                 <div class="cd-timeline-content"  style="width:90%!important;">
                     <div class="row">
                         <div class="box">
@@ -125,7 +125,7 @@ $dates = getfeeds(1);
                                 <div class="row"　style="position: relative;">
                                     <div class="col-sm-5" style="width: 400px;
                                                                 height: 380px; ">
-                                         <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
+                                         <img class="img-responsive img-border img-left" src="images/<?php echo getphotos(getposts($date["id"])[0]["id"])[0]["filename"] ?>" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
                                     </div>
                                     <div class="col-sm-7">
                                         <hr>
@@ -166,7 +166,7 @@ $dates = getfeeds(1);
                                         <div class="row" style="margin-top:10px;">
                                             <a href="user.php">
                                             <div class="col-sm-offset-2 col-sm-5">
-                                                <img class="img-responsive img-border img-left" src="img/kohei.jpg" alt="" style="width:60px;height:auto; 
+                                                <img class="img-responsive img-border img-left" src="user_images/<?php echo getuser(getcouple($date['couple_id'])['male_id'])['photo']; ?>" alt="" style="width:60px;height:auto; 
                                                 ">
                                                 <span style="font-size:20px;font-weight: bold; margin:12px auto 12px 0; display:block;">
                                                     <?php echo getuser(getcouple($date['couple_id'])['male_id'])['name'];?>
@@ -174,7 +174,7 @@ $dates = getfeeds(1);
                                                 
                                             </div>
                                             <div class="col-sm-5">
-                                                <img class="img-responsive img-border img-left" src="img/aragaki.jpg" alt="" style="width:60px;height:auto; 
+                                                <img class="img-responsive img-border img-left" src="user_images/<?php echo getuser(getcouple($date['couple_id'])['female_id'])['photo']; ?>" alt="" style="width:60px;height:auto; 
                                                 ">
                                                 <span style="font-size:20px;font-weight: bold; margin:12px auto; display:block;">
                                                     <?php echo getuser(getcouple($date['couple_id'])['female_id'])['name'];?>

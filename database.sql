@@ -10,17 +10,18 @@ create table users (
     gender int not null,
     name varchar(255),
     password varchar(255),
+    photo varchar(255),
     age int
 );
 
-insert into users (gender, name, age) values 
-    (0,'@daichi119', 21),
-    (0,'@k0hei1993', 21),
-    (0,'@toshichan', 21),
-    (0,'@riku-^^', 23),
-    (1,'@yuina', 21),
-    (1,'@eriko1990', 28),
-    (0,'@ai0119', 17);
+insert into users (gender, name, age, photo) values 
+    (0,'@daichi119', 21, "daichi.jpg"),
+    (0,'@k0hei1993', 21, "kohei.jpeg"),
+    (0,'@toshichan', 21, "taniguchi.jpg"),
+    (0,'@riku-^^', 23, "daichi.jpg"),
+    (1,'@gakigaki', 21, "gaki.jpeg"),
+    (1,'@mitsuki', 28, "yamamoto.jpg"),
+    (0,'@makihori', 17, "horikita.jpg");
 
 /*couplesのテーブル作成*/
 create table couples (
