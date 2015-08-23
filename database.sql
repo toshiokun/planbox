@@ -11,7 +11,7 @@ create table users (
     name varchar(255),
     password varchar(255),
     photo varchar(255),
-    baithday varchar(255),
+    birthday varchar(255),
     age int
 );
 
@@ -60,6 +60,9 @@ create table dates (
 
 insert into dates (couple_id, name, description, budget, created, modified) values 
     (1, "渋谷デート", "晴れの日を二人で過ごしました。お金がなかったので、有名どころを回って来ました(^^)", "4000", now(), now()),
+    (1, "自由が丘デート", "オシャレな街、自由が丘。カフェや雑貨屋さんを見てきました。まったりしたい方におすすめです！！", "5000",now(), now()),
+    (1, "江ノ島デート", "夏ということで江ノ島に行ってきました！海に入らなくても江ノ島は楽しいですよ！", "6000",now(), now()),
+    (2, "渋谷デート", "晴れの日を二人で過ごしました。お金がなかったので、有名どころを回って来ました(^^)", "4000", now(), now()),
     (2, "自由が丘デート", "オシャレな街、自由が丘。カフェや雑貨屋さんを見てきました。まったりしたい方におすすめです！！", "5000",now(), now()),
     (3, "江ノ島デート", "夏ということで江ノ島に行ってきました！海に入らなくても江ノ島は楽しいですよ！", "6000",now(), now());
 
@@ -113,20 +116,20 @@ insert into photos (post_id, filename, created, modified) values
     (4, 'rakutencafe_outer.jpg', now(), now()),
     (5, 'loft.jpg', now(), now()),
     (6, 'dinner.jpg', now(), now()),
-    (7, 'omotesando.jpg', now(), now());
-    (8, 'j.station.jpg', now(), now());
-    (9, 'j.starbucks.jpg', now(), now());
-    (10, 'j.walking.jpg', now(), now());
-    (11, 'j.deseart.jpg', now(), now());
-    (12, 'j.store.jpg', now(), now());
-    (13, 'j.italian.jpg', now(), now());
-    (14, 'j.nightview.jpg', now(), now());
-    (15, 'f.station.jpg', now(), now());
-    (16, 'f.train.jpg', now(), now());
-    (17, 'f.highschool.jpg', now(), now());
-    (18, 'f.bridge.jpg', now(), now());
-    (19, 'f.shirasu.jpg', now(), now());
-    (20, 'f.nightview.jpg', now(), now());
+    (7, 'omotesando.jpg', now(), now()),
+    (8, 'j.station.jpg', now(), now()),
+    (9, 'j.starbucks.jpg', now(), now()),
+    (10, 'j.walking.jpg', now(), now()),
+    (11, 'j.deseart.jpg', now(), now()),
+    (12, 'j.store.jpg', now(), now()),
+    (13, 'j.italian.jpg', now(), now()),
+    (14, 'j.nightview.jpg', now(), now()),
+    (15, 'f.station.jpg', now(), now()),
+    (16, 'f.train.jpg', now(), now()),
+    (17, 'f.highschool.jpg', now(), now()),
+    (18, 'f.bridge.jpg', now(), now()),
+    (19, 'f.shirasu.jpg', now(), now()),
+    (20, 'f.nightview.jpg', now(), now()),
     (21, 'f.yokohama.jpg', now(), now());
 
 
