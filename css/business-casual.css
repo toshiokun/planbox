@@ -212,3 +212,32 @@ body {
         width:100%
     }
 */
+
+/* css added by MH*/
+
+
+a {
+text-decoration: none;
+}
+
+.imgOverlay {
+    position: relative;
+}
+
+.overlayText{
+    position: absolute; 
+    top: 15px; right: 100px;
+    background-color: #ffffcc;
+    opacity: 0.5;
+}
+
+html. body {
+height: 100%;
+_overflow: auto;
+}
+
+div #footer {
+width:100%;
+bottom:0;
+left:0;
+}
