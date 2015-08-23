@@ -114,6 +114,21 @@ insert into photos (post_id, filename, created, modified) values
     (5, 'loft.jpg', now(), now()),
     (6, 'dinner.jpg', now(), now()),
     (7, 'omotesando.jpg', now(), now());
+    (8, 'j.station.jpg', now(), now());
+    (9, 'j.starbucks.jpg', now(), now());
+    (10, 'j.walking.jpg', now(), now());
+    (11, 'j.deseart.jpg', now(), now());
+    (12, 'j.store.jpg', now(), now());
+    (13, 'j.italian.jpg', now(), now());
+    (14, 'j.nightview.jpg', now(), now());
+    (15, 'f.station.jpg', now(), now());
+    (16, 'f.train.jpg', now(), now());
+    (17, 'f.highschool.jpg', now(), now());
+    (18, 'f.bridge.jpg', now(), now());
+    (19, 'f.shirasu.jpg', now(), now());
+    (20, 'f.nightview.jpg', now(), now());
+    (21, 'f.yokohama.jpg', now(), now());
+
 
 /*countriesのテーブル作成*/
 create table favorites (
