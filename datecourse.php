@@ -1,3 +1,21 @@
+ <? 
+require_once('config.php');
+require_once('function.php');
+
+if ($_GET['id']) {
+    $date_id = $_GET['id'];
+} else {
+    $date_id = 1;
+}
+
+//データベースに接続
+$dbh = connectDb();
+
+//post情報の取得
+$posts = getposts($date_id);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,7 +192,7 @@
 
     <section id="cd-timeline" class="cd-container">
 
-
+        <?php foreach ($posts as $post) { ?>
         <div class="cd-timeline-block">
             <div class="cd-timeline-img cd-picture" style="margin-left:-32px;">
                 <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
@@ -188,7 +206,7 @@
                                 <div class="row"　style="position: relative;">
                                     <div class="col-sm-5" style="width: 330px;
                                     height: 250px; ">
-                                    <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" style="width:auto;height:220px;
+                                    <img class="img-responsive img-border img-left" src="images/<?php echo getphotos($post['id'])[0]['filename']; ?>" alt="" style="width:auto;height:220px;
                                     position: absolute;
                                     top: 0;
                                     bottom: 0;
@@ -201,7 +219,7 @@
                                     <div class="row">
                                         <div class="col-sm-offset-1 text-center col-sm-offset-1">
                                             <p>
-                                                まずは朝の出発でーす！めっちゃ天気いい！！
+                                                <?php echo $post['content']; ?>
                                             </p>
                                         </div>
                                     </div>
@@ -210,7 +228,8 @@
                                         <div class="col-sm-offset-3  col-sm-offset-3">
                                             <i class="fa fa-map-marker fa-2x"></i>
                                             <span style="font-size:20px;font-weight: bold;">
-                                                静岡県 下田　</span>
+                                                <?php echo $post['location']; ?>
+                                            </span>
                                                 <i class="fa fa-clock-o fa-2x"></i>
                                                 <span style="font-size:20px;font-weight: bold;">
                                                     7/12 09:43</span>
@@ -226,59 +245,7 @@
                     </div> <!-- cd-timeline-content -->
                 </a>
             </div> <!-- cd-timeline-block -->
-
-             <div class="cd-timeline-block">
-            <div class="cd-timeline-img cd-picture" style="margin-left:-32px;">
-                <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
-            </div> <!-- cd-timeline-img -->
-            <a href="https://www.google.com/">
-                <div class="cd-timeline-content"  style="width:90%!important;">
-
-                    <div class="row" id="tweet1">
-                        <div class="box">
-                            <div class="col-lg-12" style="">
-                                <div class="row"　style="position: relative;">
-                                    <div class="col-sm-5" style="width: 330px;
-                                    height: 250px; ">
-                                    <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" style="width:auto;height:220px;
-                                    position: absolute;
-                                    top: 0;
-                                    bottom: 0;
-                                    margin: auto 0 auto 10px;
-
-                                    ">
-                                </div>
-                                <div class="col-sm-7">
-
-                                    <div class="row">
-                                        <div class="col-sm-offset-1 text-center col-sm-offset-1">
-                                            <p>
-                                                サービスエリア到着！アイスおいしー
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-offset-3  col-sm-offset-3">
-                                            <i class="fa fa-map-marker fa-2x"></i>
-                                            <span style="font-size:20px;font-weight: bold;">
-                                                下田ジャンクション
-                                                　</span>
-                                                <i class="fa fa-clock-o fa-2x"></i>
-                                                <span style="font-size:20px;font-weight: bold;">
-                                                    7/12 10:26</span>
-                                                </div>
-                                            </div>
-                                            <br>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- cd-timeline-content -->
-                </a>
-            </div> <!-- cd-timeline-block -->
+            <?php } ?>
         </section>
 
 
