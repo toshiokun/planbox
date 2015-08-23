@@ -15,14 +15,14 @@ create table users (
     age int
 );
 
-insert into users (gender, name, age, photo) values 
-    (0,'@daichi119', 21, "daichi.jpg"),
-    (0,'@k0hei1993', 21, "kohei.jpeg"),
-    (0,'@toshichan', 21, "taniguchi.jpg"),
-    (0,'@riku-^^', 23, "daichi.jpg"),
-    (1,'@gakigaki', 21, "gaki.jpeg"),
-    (1,'@mitsuki', 28, "yamamoto.jpg"),
-    (0,'@makihori', 17, "horikita.jpg");
+insert into users (gender, name, age, photo, birthday) values 
+    (0,'@daichi119', 21, "daichi.jpg", '1994/1/24'),
+    (0,'@k0hei1993', 21, "kohei.jpeg", '1993/5/24'),
+    (0,'@toshichan', 21, "taniguchi.jpg", '1993/5/4'),
+    (0,'@riku-^^', 23, "daichi.jpg",'1992/2/2'),
+    (1,'@gakigaki', 21, "gaki.jpeg",'1991/7/21'),
+    (1,'@mitsuki', 28, "yamamoto.jpg",'1992/2/24'),
+    (0,'@makihori', 17, "horikita.jpg",'1994/6/24');
 
 /*couplesのテーブル作成*/
 create table couples (
@@ -42,10 +42,10 @@ create table couples (
     modified datetime default null
 );
 
-insert into couples (male_id, female_id) values 
-    (1, 6),
-    (2, 5),
-    (3, 7);
+insert into couples (male_id, female_id, often_area, often_place, relationship) values 
+    (1, 6, "横浜","水族館","破滅直前"),
+    (2, 5, "渋谷","カフェ","カップル"),
+    (3, 7, "中目黒","美術館","夫婦");
 
 /*datesのテーブル作成*/
 create table dates (
@@ -84,17 +84,17 @@ insert into posts (date_id, content, location, created, modified) values
     (2, "駅前で集合、人やばい。", "自由が丘", now(), now()),
     (2, "スタバでいっぱい！新作のフラペチーノ美味しい♡", "自由が丘", now(), now()),
     (2, "メインストリートをゆっくりお散歩", "自由が丘", now(), now()),
-    (2, "楽天カフェで一休み！ワンピースの音楽が永遠リピート。。。懐かしい！！", "自由が丘", now(), now()),
-    (2, "LOFTでお買い物！二人でお揃いの手帳ゲッチュ(*^^*)カラクリすごかった！！", "自由が丘", now(), now()),
-    (2, "ディナーは予約してました！美味しい料理がたくさんあって幸せだった♪", "自由が丘", now(), now()),
-    (2, "寂しいけど、ばいばーい（泣）夜景すごくキレイだった！！", "自由が丘", now(), now()),    
-    (3, "駅前で集合、人やばい。", "自由が丘", now(), now()),
-    (3, "スタバでいっぱい！新作のフラペチーノ美味しい♡", "自由が丘", now(), now()),
-    (3, "メインストリートをゆっくりお散歩", "自由が丘", now(), now()),
-    (3, "楽天カフェで一休み！ワンピースの音楽が永遠リピート。。。懐かしい！！", "自由が丘", now(), now()),
-    (3, "LOFTでお買い物！二人でお揃いの手帳ゲッチュ(*^^*)カラクリすごかった！！", "自由が丘", now(), now()),
-    (3, "ディナーは予約してました！美味しい料理がたくさんあって幸せだった♪", "自由が丘", now(), now()),
-    (3, "寂しいけど、ばいばーい（泣）夜景すごくキレイだった！！", "自由が丘", now(), now());
+    (2, "デザート食べまくってお昼スキップー！ジェラート美味しすぎた！", "自由が丘", now(), now()),
+    (2, "雑貨屋さんに行ってきたよー！", "自由が丘", now(), now()),
+    (2, "ディナーはイタリアン！ラボエムにいってきたよー！オシャレな内装でおすすめ！", "自由が丘", now(), now()),
+    (2, "夜景すごくキレイだった！！また来たい街だなー自由が丘！", "自由が丘", now(), now()),    
+    (3, "駅前で集合、彼氏が遅刻！", "藤沢駅", now(), now()),
+    (3, "はじめての江ノ電！ローカル線すぎるー！ゆっくり動くー！", "江の電", now(), now()),
+    (3, "江ノ電で途中下車、スラムダンク発祥の高校があるみたい", "七里ガ浜駅", now(), now()),
+    (3, "江の島到着！江の島って橋を渡っていけるんだね！散歩行ってきまーす！", "江の島", now(), now()),
+    (3, "江の島といえば、しらす丼だよね！美味しい！", "江の島", now(), now()),
+    (3, "夜も綺麗な江の島ー！でもお店閉まるの早すぎ！早めの帰宅ー", "江の島", now(), now()),
+    (3, "家に帰って来ちゃった〜！江の島散策の1日でした！", "横浜", now(), now());
 
 /*photosのテーブル作成*/
 create table photos (
@@ -114,6 +114,21 @@ insert into photos (post_id, filename, created, modified) values
     (5, 'loft.jpg', now(), now()),
     (6, 'dinner.jpg', now(), now()),
     (7, 'omotesando.jpg', now(), now());
+    (8, 'j.station.jpg', now(), now());
+    (9, 'j.starbucks.jpg', now(), now());
+    (10, 'j.walking.jpg', now(), now());
+    (11, 'j.deseart.jpg', now(), now());
+    (12, 'j.store.jpg', now(), now());
+    (13, 'j.italian.jpg', now(), now());
+    (14, 'j.nightview.jpg', now(), now());
+    (15, 'f.station.jpg', now(), now());
+    (16, 'f.train.jpg', now(), now());
+    (17, 'f.highschool.jpg', now(), now());
+    (18, 'f.bridge.jpg', now(), now());
+    (19, 'f.shirasu.jpg', now(), now());
+    (20, 'f.nightview.jpg', now(), now());
+    (21, 'f.yokohama.jpg', now(), now());
+
 
 /*countriesのテーブル作成*/
 create table favorites (
