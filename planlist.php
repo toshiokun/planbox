@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="Ja">
 
 <head>
 
@@ -41,8 +41,8 @@
 
 <body>
 
-    <div class="brand">NewsFeeds</div>
-    <div class="address-bar">あなたのお気に入りカップルの最近のデートをチェック！</div>
+    <div class="brand">Plan List</div>
+    <div class="address-bar">お気に入りのプランから行きたい場所を確認！</div>
 
 
 
@@ -97,13 +97,10 @@
     </nav>
 
 <div class="container">
-    <div class="row">
-        <div class="">
-            <div class="list-group">
-              <a href="#" class="list-group-item">
-                <div class="row">
-                        <div class="box">
-                            <div class="col-lg-12" style="">
+    <a href="">
+    <div class="row" id="list">
+        <div class="box">
+            <div class="col-lg-12" style="">
                                 <div class="row"　style="position: relative;">
                                     <div class="col-sm-5" style="width: 400px;
                                                                 height: 380px; ">
@@ -165,108 +162,9 @@
                             </div>
                         </div>
                     </div>
-              </a>
-              <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">List group item heading</h4>
-                <p class="list-group-item-text">...</p>
-              </a>
-              <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">List group item heading</h4>
-                <p class="list-group-item-text">...</p>
-              </a>
-            </div>
-        </div>
-    </div>
+                    </a>
+                    <p class="btn btn-default" id="finished" role="button" style="float:right;margin-top:-20px;" >もう行った！</p>                            
 </div><!--container-->
-
-
-<section id="cd-timeline" class="cd-container">
-    <div class="container">
-
-
-        <div class="cd-timeline-block">
-            <div class="cd-timeline-img cd-picture" style="margin-left:-44px;">
-                <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
-            </div> <!-- cd-timeline-img -->
-            <a href="https://www.google.com/"　style="">
-                <div class="cd-timeline-content"  style="width:90%!important;">
-                    <div class="row">
-                        <div class="box">
-                            <div class="col-lg-12" style="">
-                                <div class="row"　style="position: relative;">
-                                    <div class="col-sm-5" style="width: 400px;
-                                                                height: 380px; ">
-                                         <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <hr>
-                                        <h3 class="intro-text text-center">
-                                            <i class="fa fa-map-marker fa-2x"></i>
-                                            江の島デート
-                                        </h3>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
-                                        <p>
-                                            朝から江の島へドライブでGO!昼ご飯はしらす丼を食べ、綺麗な夕焼け見て帰って来ましたー！
-                                        </p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-5 text-center">
-                                                <i class="fa fa-map-marker fa-2x"></i>
-                                                <span style="font-size:20px;font-weight: bold;">
-                                                神奈川県江の島</span>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <i class="fa fa-jpy fa-2x"></i>
-                                                <span style="font-size:20px;font-weight: bold;">
-                                                    4000</span>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <i class="fa fa-heart fa-2x"></i>
-                                                <span style="font-size:20px;font-weight: bold;">
-                                                 行きたい <span class="badge" style="font-size:18px">4</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row" style="margin-top:10px;">
-                                            <a href="user.php">
-                                            <div class="col-sm-offset-2 col-sm-5">
-                                                <img class="img-responsive img-border img-left" src="img/kohei.jpg" alt="" style="width:60px;height:auto; 
-                                                ">
-                                                <span style="font-size:20px;font-weight: bold; margin:12px auto 12px 0; display:block;">
-                                                    @k0hei000</span>
-                                                
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <img class="img-responsive img-border img-left" src="img/aragaki.jpg" alt="" style="width:60px;height:auto; 
-                                                ">
-                                                <span style="font-size:20px;font-weight: bold; margin:12px auto; display:block;">
-                                                    @gakki123</span>
-                                            </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <span class="cd-date" style=" font-weight:bold;color:white;">Jan 14</span>
-            </div> <!-- cd-timeline-content -->
-            </a>
-        </div> <!-- cd-timeline-block -->
-
-        
-        
-
-        
-    </div>
-</section>
-    <!-- /.container -->
-
     
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -283,6 +181,14 @@
     $('.carousel').carousel({
         interval: 5000 //changes the speed
     })
+    </script>
+
+    <script>
+    $("#finished").click(function(){
+        $('#list').hide('slow', function(){ $('#list').remove(); });
+        $(this).hide('slow', function(){$(this).remove(); });
+       
+       });
     </script>
 
 </body>

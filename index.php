@@ -100,7 +100,7 @@
 
 <section id="cd-timeline" class="cd-container">
     <div class="container">
-
+        
 
         <div class="cd-timeline-block">
             <div class="cd-timeline-img cd-picture" style="margin-left:-44px;">
@@ -177,7 +177,7 @@
             </a>
         </div> <!-- cd-timeline-block -->
 
-        
+
 
         
         
