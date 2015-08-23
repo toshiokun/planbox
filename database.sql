@@ -15,14 +15,14 @@ create table users (
     age int
 );
 
-insert into users (gender, name, age, photo) values 
-    (0,'@daichi119', 21, "daichi.jpg"),
-    (0,'@k0hei1993', 21, "kohei.jpeg"),
-    (0,'@toshichan', 21, "taniguchi.jpg"),
-    (0,'@riku-^^', 23, "daichi.jpg"),
-    (1,'@gakigaki', 21, "gaki.jpeg"),
-    (1,'@mitsuki', 28, "yamamoto.jpg"),
-    (0,'@makihori', 17, "horikita.jpg");
+insert into users (gender, name, age, photo, birthday) values 
+    (0,'@daichi119', 21, "daichi.jpg", '1994/1/24'),
+    (0,'@k0hei1993', 21, "kohei.jpeg", '1993/5/24'),
+    (0,'@toshichan', 21, "taniguchi.jpg", '1993/5/4'),
+    (0,'@riku-^^', 23, "daichi.jpg",'1992/2/2'),
+    (1,'@gakigaki', 21, "gaki.jpeg",'1991/7/21'),
+    (1,'@mitsuki', 28, "yamamoto.jpg",'1992/2/24'),
+    (0,'@makihori', 17, "horikita.jpg",'1994/6/24');
 
 /*couplesのテーブル作成*/
 create table couples (
@@ -42,10 +42,10 @@ create table couples (
     modified datetime default null
 );
 
-insert into couples (male_id, female_id) values 
-    (1, 6),
-    (2, 5),
-    (3, 7);
+insert into couples (male_id, female_id, often_area, often_place, relationship) values 
+    (1, 6, "横浜","水族館","破滅直前"),
+    (2, 5, "渋谷","カフェ","カップル"),
+    (3, 7, "中目黒","美術館","夫婦");
 
 /*datesのテーブル作成*/
 create table dates (
