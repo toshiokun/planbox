@@ -22,7 +22,7 @@ insert into users (gender, name, age, photo, birthday) values
     (1,'@riku-^^', 23, "daichi.jpg",'1992/2/2'),
     (1,'@gakigaki', 21, "gaki.jpeg",'1991/7/21'),
     (1,'@mitsuki', 28, "yamamoto.jpg",'1992/2/24'),
-    (0,'@GIGcl', 20, "", '1995/1/1'),
+    (0,'GIGcl', 20, "tsumabuki.jpeg", '1995/1/1'),
     (1,'@makihori', 17, "horikita.png",'1994/6/24');
 
 /*couplesのテーブル作成*/
@@ -45,9 +45,10 @@ create table couples (
 
 insert into couples (male_id, female_id, often_area, often_place, relationship, anniversary, created, modified) values 
     (1, 6, "横浜","水族館","破滅直前","2015/8/2",now(),now()),
-    (7, 4, "横浜","水族館","デモ用","2015/8/2",now(),now()),
     (2, 5, "渋谷","カフェ","カップル","2012/3/7",now(),now()),
-    (3, 8, "中目黒","美術館","夫婦","2013/4/2",now(),now());
+    (3, 8, "中目黒","美術館","夫婦","2013/4/2",now(),now()),
+    (7, 4, "横浜","水族館","デモ用","2015/8/2",now(),now());
+
 
 /*datesのテーブル作成*/
 create table dates (
@@ -61,6 +62,7 @@ create table dates (
 );
 
 insert into dates (couple_id, name, description, budget, created, modified) values 
+    (4, "ハッカソン＠PAAK", "今からデモを披露いたします！！", "100億", now(), now()),
     (1, "渋谷デート", "晴れの日を二人で過ごしました。お金がなかったので、有名どころを回って来ました(^^)", "4000", now(), now()),
     (2, "自由が丘デート", "オシャレな街、自由が丘。カフェや雑貨屋さんを見てきました。まったりしたい方におすすめです！！", "5000",now(), now()),
     (3, "江ノ島デート", "夏ということで江ノ島に行ってきました！海に入らなくても江ノ島は楽しいですよ！", "6000",now(), now());
@@ -165,6 +167,7 @@ insert into follows (fav_flg, user_id, couple_id, created, modified) values
     (1, 1, 1, now(), now()),
     (1, 1, 2, now(), now()),
     (1, 1, 3, now(), now()),
+    (1, 1, 4, now(), now()),
     (1, 3, 1, now(), now()),
     (1, 4, 2, now(), now()),
     (1, 4, 1, now(), now()),
