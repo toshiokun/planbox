@@ -6,7 +6,7 @@
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url('../img/bg.jpg') no-repeat center center fixed;
+    background: url('../img/sunset.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -195,11 +195,13 @@ body { padding-top: 100px; }
 /*書き足した部分のCSS*/
     .navbar-nav > li > a{
         padding:14px 8px 8px 8px;
+        font-size: 14px;
     }
-    .navbar-nav > li{
-        border-style: bold;
-        border-color: black;
-    }
+    
+
+body {
+    font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Osaka,sans-serif;
+}
 
  /*   .navbar {
         position:fixed;
@@ -207,3 +209,32 @@ body { padding-top: 100px; }
         width:100%
     }
 */
+
+/* css added by MH*/
+
+
+a {
+text-decoration: none;
+}
+
+.imgOverlay {
+    position: relative;
+}
+
+.overlayText{
+    position: absolute; 
+    top: 15px; right: 100px;
+    background-color: #ffffcc;
+    opacity: 0.5;
+}
+
+html. body {
+height: 100%;
+_overflow: auto;
+}
+
+div #footer {
+width:100%;
+bottom:0;
+left:0;
+}
