@@ -1,5 +1,7 @@
 <?php
-require 'TwistOAuth.phar';
+require('TwistOAuth.phar');
+require_once('config.php');
+require_once('function.php');
 $code = 200;
 
 // Set your timezone.
@@ -41,17 +43,7 @@ $to->streaming('user', function ($status) {
 //渡すもの$status->text(コメント),$status->created_at(時間),$status->user->screenname(ユーザ名),$status->entities->media[0]->media_url(画像のurl),&status->coordinates(緯度経度(配列))
 
       echo $status->entities->media[0]->media_url;
-         printf(
-            "<br />@%s: %s\n,<br />%s",
-            $status->user->screen_name,
-       //       
-            htmlspecialchars_decode($status->text, ENT_NOQUOTES),
-            
-        $status->created_at
-       $status->entities->media[0]->media_url,
-     //  $status->coordinates->coordinates[0]
-           
-        );
+      setPost($status->user->screen_name, $status->text, $status->created_at);
         flush(); // Required if running not on Command Line but on Apache
     }
     }

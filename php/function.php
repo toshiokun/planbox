@@ -149,3 +149,34 @@ function getuser($a) {
   $user = $stmt->fetch(PDO::FETCH_ASSOC);
   return $user;
 }
+
+function setPost($name, $text, $created_at){
+  $dbh = connectDb();
+  $sql = "select * from users where name = '$name'";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $user = $stmt->fetch();
+  var_dump($user);
+  $sql = "select * from couples where male_id = ".$user["id"]." or female_id =".$user["id"];
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $couple = $stmt->fetch();
+  var_dump($couple);
+  $sql = "select * from dates where couple_id = ".$couple["id"]." and modified >= ( NOW( ) - INTERVAL 1 DAY )";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $date = $stmt->fetch();
+  var_dump($date);
+  if (empty($date)) {
+    $sql = "insert into dates (couple_id,  name, description, created, modified) values (".$couple["id"].",  'hoge', 'hoge', NOW(), NOW())";
+    $stmt = $dbh->query($sql);
+    $stmt->execute;
+    $sql = "select * from dates where couple_id = ".$couple["id"];
+    $stmt = $dbh->query($sql);
+    $stmt->execute;
+    $date = $stmt->fetch();
+  }
+  $sql = "insert into posts (date_id,  content, created, modified) values (".$date["id"].", '$text', NOW(), NOW())";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+}
