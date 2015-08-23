@@ -257,11 +257,11 @@
                 </script>
 
                 <script>
-                $("#finished").click(function(){
-                    $('#list').hide('slow', function(){ $('#list').remove(); });
-                    $(this).hide('slow', function(){$(this).remove(); });
+                // $("#finished").click(function(){
+                //     $('#list').hide('slow', function(){ $('#list').remove(); });
+                //     $(this).hide('slow', function(){$(this).remove(); });
 
-                });
+                // });
                 </script>
 
             </body>
