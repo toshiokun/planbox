@@ -272,7 +272,10 @@ $j = 0;
                             <input type="submit" value="行きたい！"></input></form></p>
                     </li >
                     <li class="col-sm-4">
-                        <p>フォロー</p>
+                        <p><form action="follow.php" method="post">
+                            <input type="hidden" name="user_id" value="1"></input>
+                            <input type="hidden" name="date_id" value="<?php echo $date_id; ?>"></input>
+                            <input type="submit" value="フォロー"></input></form></p>
                     </li>
                     <li class="col-sm-4">
                         <p>コメント</p>
