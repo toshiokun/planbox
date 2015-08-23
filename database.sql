@@ -19,7 +19,7 @@ insert into users (gender, name, age, photo, birthday) values
     (0,'@daichi119', 21, "daichi.jpg", '1994/1/24'),
     (0,'@k0hei1993', 21, "kohei.jpeg", '1993/5/24'),
     (0,'@toshichan', 21, "taniguchi.jpg", '1993/5/4'),
-    (1,'@riku-^^', 23, "daichi.jpg",'1992/2/2'),
+    (1,'@azuman', 23, "azuma.jpg",'1992/2/2'),
     (1,'@gakigaki', 21, "gaki.jpeg",'1991/7/21'),
     (1,'@mitsuki', 28, "yamamoto.jpg",'1992/2/24'),
     (0,'GIGcl', 20, "tsumabuki.jpeg", '1995/1/1'),
