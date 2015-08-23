@@ -230,3 +230,15 @@ text-decoration: none;
     background-color: #ffffcc;
     opacity: 0.5;
 }
+
+.userIcon{
+    height: 180px;
+    width: 180px;
+}
+
+.userDescription{
+    top: -180px;
+} 
+.tweets{
+    top: -180px;
+} 

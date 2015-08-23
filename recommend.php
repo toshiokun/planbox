@@ -95,18 +95,20 @@
         </nav>
 
         <div class="container">
-            <a href="">
+            
                 <div class="row" id="list">
                     <div class="row">
                                 <div class="col-sm-6">
+                    <a href="">
                     <div class="box">
-                        <div class="col-lg-12" style="">
 
-                                    <div class="row"　style="">
+                        
+                                    <div class=""　style="">
                                         <div class="" style="height:280px width:auto;">
-                                        <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: 0 auto 0 80px;">
+                                        <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" 
+                                        style="width:auto;height:260px; margin-left:80px;">
                                     </div>
-                                    <div class="">
+                                    <div class="" style="padding-top:40px;">
                                         <hr>
                                         <h3 class="intro-text text-center">
                                             <i class="fa fa-map-marker fa-2x"></i>
@@ -157,21 +159,23 @@
                                                             </div>
                                                         </a>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                                                          </div>
                                         </div>
                                     </div>
+                                </a>
+                                <p class="btn btn-default" id="finished" role="button" style="float:right;margin-top:-20px;" >行きたい！</p>
                                 </div>
-                                <div class="col-sm-6">
+                                                                <div class="col-sm-6">
+                                                                    <a href="">
                     <div class="box">
-                        <div class="col-lg-12" style="">
 
-                                    <div class="row"　style="position: relative;">
-                                        <div class="col-sm-5" style="width: 400px;
-                                        height: 380px; ">
-                                        <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
+                        
+                                    <div class=""　style="">
+                                        <div class="" style="height:280px width:auto;">
+                                        <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" 
+                                        style="width:auto;height:260px; margin-left:80px;">
                                     </div>
-                                    <div class="col-sm-7">
+                                    <div class="" style="padding-top:40px;">
                                         <hr>
                                         <h3 class="intro-text text-center">
                                             <i class="fa fa-map-marker fa-2x"></i>
@@ -179,7 +183,7 @@
                                         </h3>
                                         <hr>
                                         <div class="row">
-                                            <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
+                                            <div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
                                                 <p>
                                                     朝から江の島へドライブでGO!昼ご飯はしらす丼を食べ、綺麗な夕焼け見て帰って来ましたー！
                                                 </p>
@@ -222,15 +226,17 @@
                                                             </div>
                                                         </a>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                                                          </div>
                                         </div>
                                     </div>
+                                </a>
+                                <p class="btn btn-default" id="finished" role="button" style="float:right;margin-top:-20px;" >もう行った！</p>
                                 </div>
+
                             </div>
                         </div>
-                    </a>
-                    <p class="btn btn-default" id="finished" role="button" style="float:right;margin-top:-20px;" >もう行った！</p>                            
+                    
+                                                
                 </div><!--container-->
 
 
