@@ -11,18 +11,18 @@ create table users (
     name varchar(255),
     password varchar(255),
     photo varchar(255),
-    baithday varchar(255),
+    birthday varchar(255),
     age int
 );
 
-insert into users (gender, name, age, photo) values 
-    (0,'@daichi119', 21, "daichi.jpg"),
-    (0,'@k0hei1993', 21, "kohei.jpeg"),
-    (0,'@toshichan', 21, "taniguchi.jpg"),
-    (0,'@riku-^^', 23, "daichi.jpg"),
-    (1,'@gakigaki', 21, "gaki.jpeg"),
-    (1,'@mitsuki', 28, "yamamoto.jpg"),
-    (0,'@makihori', 17, "horikita.jpg");
+insert into users (gender, name, age, photo, birthday) values 
+    (0,'@daichi119', 21, "daichi.jpg", '1994/1/24'),
+    (0,'@k0hei1993', 21, "kohei.jpeg", '1993/5/24'),
+    (0,'@toshichan', 21, "taniguchi.jpg", '1993/5/4'),
+    (0,'@riku-^^', 23, "daichi.jpg",'1992/2/2'),
+    (1,'@gakigaki', 21, "gaki.jpeg",'1991/7/21'),
+    (1,'@mitsuki', 28, "yamamoto.jpg",'1992/2/24'),
+    (0,'@makihori', 17, "horikita.jpg",'1994/6/24');
 
 /*couplesのテーブル作成*/
 create table couples (
@@ -42,10 +42,10 @@ create table couples (
     modified datetime default null
 );
 
-insert into couples (male_id, female_id) values 
-    (1, 6),
-    (2, 5),
-    (3, 7);
+insert into couples (male_id, female_id, often_area, often_place, relationship) values 
+    (1, 6, "横浜","水族館","破滅直前"),
+    (2, 5, "渋谷","カフェ","カップル"),
+    (3, 7, "中目黒","美術館","夫婦");
 
 /*datesのテーブル作成*/
 create table dates (
@@ -60,6 +60,9 @@ create table dates (
 
 insert into dates (couple_id, name, description, budget, created, modified) values 
     (1, "渋谷デート", "晴れの日を二人で過ごしました。お金がなかったので、有名どころを回って来ました(^^)", "4000", now(), now()),
+    (1, "自由が丘デート", "オシャレな街、自由が丘。カフェや雑貨屋さんを見てきました。まったりしたい方におすすめです！！", "5000",now(), now()),
+    (1, "江ノ島デート", "夏ということで江ノ島に行ってきました！海に入らなくても江ノ島は楽しいですよ！", "6000",now(), now()),
+    (2, "渋谷デート", "晴れの日を二人で過ごしました。お金がなかったので、有名どころを回って来ました(^^)", "4000", now(), now()),
     (2, "自由が丘デート", "オシャレな街、自由が丘。カフェや雑貨屋さんを見てきました。まったりしたい方におすすめです！！", "5000",now(), now()),
     (3, "江ノ島デート", "夏ということで江ノ島に行ってきました！海に入らなくても江ノ島は楽しいですよ！", "6000",now(), now());
 
@@ -113,20 +116,20 @@ insert into photos (post_id, filename, created, modified) values
     (4, 'rakutencafe_outer.jpg', now(), now()),
     (5, 'loft.jpg', now(), now()),
     (6, 'dinner.jpg', now(), now()),
-    (7, 'omotesando.jpg', now(), now());
-    (8, 'j.station.jpg', now(), now());
-    (9, 'j.starbucks.jpg', now(), now());
-    (10, 'j.walking.jpg', now(), now());
-    (11, 'j.deseart.jpg', now(), now());
-    (12, 'j.store.jpg', now(), now());
-    (13, 'j.italian.jpg', now(), now());
-    (14, 'j.nightview.jpg', now(), now());
-    (15, 'f.station.jpg', now(), now());
-    (16, 'f.train.jpg', now(), now());
-    (17, 'f.highschool.jpg', now(), now());
-    (18, 'f.bridge.jpg', now(), now());
-    (19, 'f.shirasu.jpg', now(), now());
-    (20, 'f.nightview.jpg', now(), now());
+    (7, 'omotesando.jpg', now(), now()),
+    (8, 'j.station.jpg', now(), now()),
+    (9, 'j.starbucks.jpg', now(), now()),
+    (10, 'j.walking.jpg', now(), now()),
+    (11, 'j.deseart.jpg', now(), now()),
+    (12, 'j.store.jpg', now(), now()),
+    (13, 'j.italian.jpg', now(), now()),
+    (14, 'j.nightview.jpg', now(), now()),
+    (15, 'f.station.jpg', now(), now()),
+    (16, 'f.train.jpg', now(), now()),
+    (17, 'f.highschool.jpg', now(), now()),
+    (18, 'f.bridge.jpg', now(), now()),
+    (19, 'f.shirasu.jpg', now(), now()),
+    (20, 'f.nightview.jpg', now(), now()),
     (21, 'f.yokohama.jpg', now(), now());
 
 

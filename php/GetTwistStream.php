@@ -10,7 +10,7 @@ date_default_timezone_set('Asia/Tokyo');
 
 try {
     // Generate your TwistOAuth object.
-    $to = new TwistOAuth('9ELmNVrSHQih0oFF8Dlr19L7D', '1NjLEN4bjL5WqYwgsh4G1LQKc0SSgjucoeNeETOQ7p6juxduFq', '2720934722-wa7bZMpCBKUtKoRatXGIsUWKt60WZ0f2evJi7TG', 'YACgr4Vh3RjzzSCQ8b3EEGKzPqgJ9umtFKmaP4wFlKLgj');
+    $to = new TwistOAuth('uwx5NeGNswaHvnPQbBKu5GArv','n6yqYpDkWucaMYc2VOVDY2LQbzKPwHsdjziPFRk2HGmd74Mg1m','2935870814-7RvpUpTMy1W7qyfGZAAwiN80xLa4f4knmp5HHfc','yKBrPFxngGnqe2k0w5ttZXKLlJoNQ0ERwjSKfRaCmdtQQ');
 
 } catch (TwistException $e) {
 
@@ -43,7 +43,7 @@ $to->streaming('user', function ($status) {
 //渡すもの$status->text(コメント),$status->created_at(時間),$status->user->screenname(ユーザ名),$status->entities->media[0]->media_url(画像のurl),&status->coordinates(緯度経度(配列))
 
       echo $status->entities->media[0]->media_url;
-      setPost($status->user->screen_name, $status->text, $status->created_at);
+      setPost($status->user->screen_name, $status->text, $status->created_at, $status->entities->media[0]->media_url);
         flush(); // Required if running not on Command Line but on Apache
     }
     }
