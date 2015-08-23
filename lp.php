@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Planbox</a>
+                <a class="navbar-brand page-scroll" href="index.php">Planbox</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
