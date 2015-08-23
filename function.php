@@ -114,6 +114,15 @@ function getdates($a) {
   return $dates;
 }
 
+function getdatefromid($a) {
+  $dbh = connectDb();
+  $sql = "select * from dates where id = ".$a;
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $date = $stmt->fetch(PDO::FETCH_ASSOC);
+  return $date;
+}
+
 function getposts($a) {
   $dbh = connectDb();
   $sql = "select * from posts where date_id = ".$a." order by created";

@@ -14,6 +14,9 @@ $dbh = connectDb();
 //post情報の取得
 $posts = getposts($date_id);
 
+$i = 0;
+$j = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -122,11 +125,11 @@ $posts = getposts($date_id);
                     <div class="col-lg-12 text-center">
                         <h1 class="intro-text text-center">
                             <i class="fa fa-calendar"></i>
-                            2015, 07, 12, Wed
+                            <?php print date("Y, n, j", strtotime(getdatefromid($date_id)['created'])); ?>
                         </h1>
                     </br>
                     <h1 class="intro-text text-center">
-                        江の島デート
+                        <?php getdatefromid($date_id)['name']; ?>
                     </h1>
                 </br>
                 <div id="carousel-example-generic" class="carousel slide">
@@ -143,7 +146,6 @@ $posts = getposts($date_id);
                             <div class="imgOverlay">
                                 <img class="img-responsive img-full" src="img/slide-1.jpg" alt="">
                                 <div class="overlayText">
-                                    <p> 7/12 09:43 @  </p>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +178,10 @@ $posts = getposts($date_id);
                 </div>
                 <div class="col-lg-8">
                     <div class="col-sm-6">
-                        <p><a href="#tweet1">7/12 09:43 @  </a></p>
+                        <?php foreach($posts as $post) { ?>
+                        <?php $i = $i + 1; ?>
+                        <p><a href="#tweet<?php echo $i;?>"><?php print date("n/j G:i", strtotime($post['created']));?> @ <?php echo $post['location']; ?> </a></p>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -193,6 +198,7 @@ $posts = getposts($date_id);
     <section id="cd-timeline" class="cd-container">
 
         <?php foreach ($posts as $post) { ?>
+        <?php $j = $j + 1; ?>
         <div class="cd-timeline-block">
             <div class="cd-timeline-img cd-picture" style="margin-left:-32px;">
                 <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
@@ -200,7 +206,7 @@ $posts = getposts($date_id);
             <a href="https://www.google.com/">
                 <div class="cd-timeline-content"  style="width:90%!important;">
 
-                    <div class="row" id="tweet1">
+                    <div class="row" id="tweet<?php echo $j;?>">
                         <div class="box">
                             <div class="col-lg-12" style="">
                                 <div class="row"　style="position: relative;">
@@ -232,7 +238,7 @@ $posts = getposts($date_id);
                                             </span>
                                                 <i class="fa fa-clock-o fa-2x"></i>
                                                 <span style="font-size:20px;font-weight: bold;">
-                                                    7/12 09:43</span>
+                                                    <?php print date("n/j G:i", strtotime($post['created'])); ?></span>
                                                 </div>
                                             </div>
                                             <br>
