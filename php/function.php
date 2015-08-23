@@ -150,7 +150,7 @@ function getuser($a) {
   return $user;
 }
 
-function setPost($name, $text, $created_at){
+function setPost($name, $text, $created_at, $post_url){
   $dbh = connectDb();
   $sql = "select * from users where name = '$name'";
   $stmt = $dbh->query($sql);
@@ -179,4 +179,16 @@ function setPost($name, $text, $created_at){
   $sql = "insert into posts (date_id,  content, created, modified) values (".$date["id"].", '$text', NOW(), NOW())";
   $stmt = $dbh->query($sql);
   $stmt->execute;
+  $sql = "select * from posts where date_id = ".$date["id"];
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $post = $stmt->fetch();
+  setPhoto($post["id"], $post_url);
+}
+
+function setPhoto($post_id, $photo_url){
+  $dbh = connectDb();
+  $sql = "insert into photos (post_id,  photo_url, created, modified) values ($post_id, '$photo_url', NOW(), NOW())";
+  $stmt = $dbh->query($sql);
+  $stmt->execute; 
 }
