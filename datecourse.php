@@ -213,7 +213,7 @@ $j = 0;
                                 <div class="row"　style="position: relative;">
                                     <div class="col-sm-5" style="width: 330px;
                                     height: 250px; ">
-                                    <img class="img-responsive img-border img-left" src="images/<?php echo getphotos($post['id'])[0]['filename']; ?>" alt="" style="width:auto;height:220px;
+                                    <img class="img-responsive img-border img-left" src="<?php echo getphotos($post['id'])[0]['filename']; ?>" alt="" style="width:auto;height:220px;
                                     position: absolute;
                                     top: 0;
                                     bottom: 0;

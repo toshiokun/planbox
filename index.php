@@ -124,7 +124,7 @@ $dates = getfeeds(1);
                                 <div class="row"　style="position: relative;">
                                     <div class="col-sm-5" style="width: 400px;
                                                                 height: 380px; ">
-                                         <img class="img-responsive img-border img-left" src="images/<?php echo getphotos(getposts($date["id"])[0]["id"])[0]["filename"] ?>" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
+                                         <img class="img-responsive img-border img-left" src="<?php echo getphotos(getposts($date["id"])[0]["id"])[0]["filename"] ?>" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
                                     </div>
                                     <div class="col-sm-7">
                                         <hr>
