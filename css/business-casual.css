@@ -191,7 +191,7 @@ footer p {
     }
 }
 
-body { padding-top: 100px; }
+body { padding-top: 100px; padding-bottom: 60px;}
 /*書き足した部分のCSS*/
 
 
@@ -229,15 +229,4 @@ text-decoration: none;
     top: 15px; right: 100px;
     background-color: #ffffcc;
     opacity: 0.5;
-}
-
-html. body {
-height: 100%;
-_overflow: auto;
-}
-
-div #footer {
-width:100%;
-bottom:0;
-left:0;
 }
