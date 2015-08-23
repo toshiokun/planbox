@@ -11,7 +11,7 @@ create table users (
     name varchar(255),
     password varchar(255),
     photo varchar(255),
-    baithday varchar(255),
+    birthday varchar(255),
     age int
 );
 
@@ -19,10 +19,11 @@ insert into users (gender, name, age, photo, birthday) values
     (0,'@daichi119', 21, "daichi.jpg", '1994/1/24'),
     (0,'@k0hei1993', 21, "kohei.jpeg", '1993/5/24'),
     (0,'@toshichan', 21, "taniguchi.jpg", '1993/5/4'),
-    (0,'@riku-^^', 23, "daichi.jpg",'1992/2/2'),
+    (1,'@riku-^^', 23, "daichi.jpg",'1992/2/2'),
     (1,'@gakigaki', 21, "gaki.jpeg",'1991/7/21'),
     (1,'@mitsuki', 28, "yamamoto.jpg",'1992/2/24'),
-    (0,'@makihori', 17, "horikita.jpg",'1994/6/24');
+    (0,'@GIGcl', 20, "", '1995/1/1'),
+    (1,'@makihori', 17, "horikita.png",'1994/6/24');
 
 /*couplesのテーブル作成*/
 create table couples (
@@ -44,8 +45,9 @@ create table couples (
 
 insert into couples (male_id, female_id, often_area, often_place, relationship, anniversary, created, modified) values 
     (1, 6, "横浜","水族館","破滅直前","2015/8/2",now(),now()),
+    (7, 4, "横浜","水族館","デモ用","2015/8/2",now(),now()),
     (2, 5, "渋谷","カフェ","カップル","2012/3/7",now(),now()),
-    (3, 7, "中目黒","美術館","夫婦","2013/4/2",now(),now());
+    (3, 8, "中目黒","美術館","夫婦","2013/4/2",now(),now());
 
 /*datesのテーブル作成*/
 create table dates (
@@ -120,13 +122,13 @@ insert into photos (post_id, filename, created, modified) values
     (11, 'j.deseart.jpg', now(), now()),
     (12, 'j.store.jpg', now(), now()),
     (13, 'j.italian.jpg', now(), now()),
-    (14, 'j.nightview.jpg', now(), now());
-    (15, 'f.station.jpg', now(), now());
-    (16, 'f.train.jpg', now(), now());
-    (17, 'f.highschool.jpg', now(), now());
-    (18, 'f.bridge.jpg', now(), now());
-    (19, 'f.shirasu.jpg', now(), now());
-    (20, 'f.nightview.jpg', now(), now());
+    (14, 'j.nightview.jpg', now(), now()),
+    (15, 'f.station.jpg', now(), now()),
+    (16, 'f.train.jpg', now(), now()),
+    (17, 'f.highschool.jpg', now(), now()),
+    (18, 'f.bridge.jpg', now(), now()),
+    (19, 'f.shirasu.jpg', now(), now()),
+    (20, 'f.nightview.jpg', now(), now()),
     (21, 'f.yokohama.jpg', now(), now());
 
 
