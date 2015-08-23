@@ -158,3 +158,70 @@ function getuser($a) {
   $user = $stmt->fetch(PDO::FETCH_ASSOC);
   return $user;
 }
+
+function setPost($name, $text, $created_at, $post_url){
+  $dbh = connectDb();
+  $sql = "select * from users where name = '$name'";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $user = $stmt->fetch();
+  var_dump($user);
+  $sql = "select * from couples where male_id = ".$user["id"]." or female_id =".$user["id"];
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $couple = $stmt->fetch();
+  var_dump($couple);
+  $sql = "select * from dates where couple_id = ".$couple["id"]." and modified >= ( NOW( ) - INTERVAL 1 DAY )";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $date = $stmt->fetch();
+  var_dump($date);
+  if (empty($date)) {
+    $sql = "insert into dates (couple_id,  name, description, created, modified) values (".$couple["id"].",  'hoge', 'hoge', NOW(), NOW())";
+    $stmt = $dbh->query($sql);
+    $stmt->execute;
+    $sql = "select * from dates where couple_id = ".$couple["id"];
+    $stmt = $dbh->query($sql);
+    $stmt->execute;
+    $date = $stmt->fetch();
+  }
+  $sql = "insert into posts (date_id,  content, created, modified) values (".$date["id"].", '$text', NOW(), NOW())";
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $sql = "select * from posts where date_id = ".$date["id"];
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $post = $stmt->fetch();
+  setPhoto($post["id"], $post_url);
+}
+
+function setPhoto($post_id, $filename){
+  $dbh = connectDb();
+  $sql = "insert into photos (post_id,  filename, created, modified) values ($post_id, '$filename', NOW(), NOW())";
+  $stmt = $dbh->query($sql);
+  $stmt->execute; 
+}
+
+function setFavorite($user_id, $date_id){
+  $dbh = connectDb();
+  $sql = "select * from favorites where user_id = ".$user_id." and date_id = ".$date_id;
+  $stmt = $dbh->query($sql);
+  $stmt->execute;
+  $favorite = $stmt->fetch();
+  if (empty($favorite)) {
+    $sql = "insert into favorites (fav_flg, user_id,  date_id, created, modified) values (1, ".$user_id.", ".$date_id.", NOW(), NOW())";
+    $stmt = $dbh->query($sql);
+    $stmt->execute;
+  } else {
+    if ($favorite["fav_flg"] == 1){
+      $sql = "update favorites set fav_flg = 0 where user_id = ".$user_id." and date_id = ".$date_id;;
+      $stmt = $dbh->query($sql);
+      $stmt->execute;
+    } else {
+      $sql = "update favorites set fav_flg = 1 where user_id = ".$user_id." and date_id = ".$date_id;;
+      $stmt = $dbh->query($sql);
+      $stmt->execute;
+
+    }
+  }
+}
