@@ -76,6 +76,7 @@ function getfeeds($a) {
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $dates = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  var_dump($dates);
   return $dates;
 }
 

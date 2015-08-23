@@ -22,7 +22,7 @@ insert into users (gender, name, age, photo, birthday) values
     (0,'@riku-^^', 23, "daichi.jpg",'1992/2/2'),
     (1,'@gakigaki', 21, "gaki.jpeg",'1991/7/21'),
     (1,'@mitsuki', 28, "yamamoto.jpg",'1992/2/24'),
-    (0,'@makihori', 17, "horikita.jpg",'1994/6/24');
+    (0,'@makihori', 17, "horikita.png",'1994/6/24');
 
 /*couplesのテーブル作成*/
 create table couples (
