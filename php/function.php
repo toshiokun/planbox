@@ -176,19 +176,25 @@ function setPost($name, $text, $created_at, $post_url){
     $stmt->execute;
     $date = $stmt->fetch();
   }
-  $sql = "insert into posts (date_id,  content, created, modified) values (".$date["id"].", '$text', NOW(), NOW())";
-  $stmt = $dbh->query($sql);
-  $stmt->execute;
-  $sql = "select * from posts where date_id = ".$date["id"];
+  $sql = "select * from posts where date_id = ".$date["id"]." and content = '$text'";
   $stmt = $dbh->query($sql);
   $stmt->execute;
   $post = $stmt->fetch();
-  setPhoto($post["id"], $post_url);
+  var_dump($post);
+  if (empty($post)){
+    var_dump("hoge");
+    $sql = "insert into posts (date_id,  content, created, modified) values (".$date["id"].", '$text', NOW(), NOW())";
+    $stmt = $dbh->query($sql);
+    $stmt->execute;
+    $lastId = $dbh->lastInsertId();
+    var_dump($lastId);
+    setPhoto($lastId, $post_url);
+  }
 }
 
 function setPhoto($post_id, $photo_url){
   $dbh = connectDb();
-  $sql = "insert into photos (post_id,  photo_url, created, modified) values ($post_id, '$photo_url', NOW(), NOW())";
+  $sql = "insert into photos (post_id,  filename, created, modified) values ($post_id, '$photo_url', NOW(), NOW())";
   $stmt = $dbh->query($sql);
   $stmt->execute; 
 }
