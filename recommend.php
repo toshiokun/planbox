@@ -230,7 +230,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <p class="btn btn-default" id="finished" role="button" style="float:right;margin-top:-20px;" >もう行った！</p>
+                                <p class="btn btn-default" id="finished" role="button" style="float:right;margin-top:-20px;" >行きたい！</p>
                                 </div>
 
                             </div>
