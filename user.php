@@ -163,12 +163,12 @@ $dates = getdates($couple_id);
                         <div class="row">
                             <div class="col-sm-6">
                                 <img class="userIcon" src="user_images/<?php echo getuser($couple['male_id'])['photo']; ?>" alt="">
-                                    <p><?php getuser($couple['male_id'])['name']; ?></p>
+                                    <p><?php echo getuser($couple['male_id'])['name'];?></p>
                                     <p><?php print date("Y/n/j", strtotime(getuser($couple['male_id'])['birthday'])); ?></p>
                             </div>
                             <div class="col-sm-6">
                                 <img class="userIcon" src="user_images/<?php echo getuser($couple['female_id'])['photo']; ?>" alt="">
-                                    <p><?php getuser($couple['female_id'])['name']; ?></p>
+                                    <p><?php echo getuser($couple['female_id'])['name'];?></p>
                                     <p><?php print date("Y/n/j", strtotime(getuser($couple['female_id'])['birthday'])); ?></p>
                             </div>
                         </div>
