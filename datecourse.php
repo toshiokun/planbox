@@ -266,7 +266,10 @@ $j = 0;
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" style="width:100%;">
                     <li class="col-sm-4">
-                        <p>行きたい！</p>
+                        <p><form action="fav.php" method="post">
+                            <input type="hidden" name="user_id" value="1"></input>
+                            <input type="hidden" name="date_id" value="<?php echo $date_id; ?>"></input>
+                            <input type="submit" value="行きたい！"></input></form></p>
                     </li >
                     <li class="col-sm-4">
                         <p>フォロー</p>
