@@ -190,7 +190,6 @@ $dates = getfeeds(1);
             </a>
         </div> <!-- cd-timeline-block -->
         <?php } ?>
-
         
         
 
