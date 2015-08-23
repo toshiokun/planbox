@@ -193,9 +193,12 @@ footer p {
 
 body { padding-top: 100px; }
 /*書き足した部分のCSS*/
+
+
+
     .navbar-nav > li > a{
-        padding:14px 8px 8px 8px;
-        font-size: 14px;
+        padding:14px 30px 30px 8px;
+        font-size: 18px;
     }
     
 

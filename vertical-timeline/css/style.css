@@ -22,7 +22,7 @@ body {
 }
 
 a {
-  color: #acb7c0;
+  /*color: #acb7c0;*/
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
 }
@@ -84,7 +84,7 @@ header h1 {
 #cd-timeline {
   position: relative;
   padding: 2em 0;
-  margin-top: 2em;
+  margin-top: 0;
   margin-bottom: 2em;
 }
 #cd-timeline::before {
@@ -99,7 +99,7 @@ header h1 {
 }
 @media only screen and (min-width: 1170px) {
   #cd-timeline {
-    margin-top: 3em;
+    margin-top: 0em;
     margin-bottom: 3em;
   }
   #cd-timeline::before {
