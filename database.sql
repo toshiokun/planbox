@@ -10,17 +10,18 @@ create table users (
     gender int not null,
     name varchar(255),
     password varchar(255),
+    photo varchar(255),
     age int
 );
 
-insert into users (gender, name, age) values 
-    (0,'daichi', 21),
-    (0,'kohei', 21),
-    (0,'toshihiro', 21),
-    (0,'riku', 23),
-    (1,'yuina', 21),
-    (1,'eriko', 28),
-    (0,'kazushi', 17);
+insert into users (gender, name, age, photo) values 
+    (0,'@daichi119', 21, "daichi.jpg"),
+    (0,'@k0hei1993', 21, "kohei.jpeg"),
+    (0,'@toshichan', 21, "taniguchi.jpg"),
+    (0,'@riku-^^', 23, "daichi.jpg"),
+    (1,'@gakigaki', 21, "gaki.jpeg"),
+    (1,'@mitsuki', 28, "yamamoto.jpg"),
+    (0,'@makihori', 17, "horikita.jpg");
 
 /*couplesのテーブル作成*/
 create table couples (
@@ -38,7 +39,8 @@ create table couples (
 
 insert into couples (male_id, female_id) values 
     (1, 6),
-    (2, 5);
+    (2, 5),
+    (3, 7);
 
 /*datesのテーブル作成*/
 create table dates (
@@ -51,11 +53,10 @@ create table dates (
     modified datetime default null
 );
 
-insert into dates (couple_id, name, description, created, modified) values 
-    (1, "渋谷デート", "晴れの日を二人で過ごしました。お金がなかったので、有名どころを回って来ました(^^)", now(), now()),
-    (1, "自由が丘デート", "オシャレな街、自由が丘。カフェや雑貨屋さんを見てきました。まったりしたい方におすすめです！！", now(), now()),
-    (2, "江ノ島デート", "夏ということで江ノ島に行ってきました！海に入らなくても江ノ島は楽しいですよ！", now(), now()),
-    (2, "ベルギー旅行", "初めての海外旅行でした。絶対に行くべき観光地をご紹介します！", now(), now());
+insert into dates (couple_id, name, description, budget, created, modified) values 
+    (1, "渋谷デート", "晴れの日を二人で過ごしました。お金がなかったので、有名どころを回って来ました(^^)", "4000", now(), now()),
+    (2, "自由が丘デート", "オシャレな街、自由が丘。カフェや雑貨屋さんを見てきました。まったりしたい方におすすめです！！", "5000",now(), now()),
+    (3, "江ノ島デート", "夏ということで江ノ島に行ってきました！海に入らなくても江ノ島は楽しいですよ！", "6000",now(), now());
 
 /*postsのテーブル作成*/
 create table posts(
@@ -75,15 +76,20 @@ insert into posts (date_id, content, location, created, modified) values
     (1, "LOFTでお買い物！二人でお揃いの手帳ゲッチュ(*^^*)カラクリすごかった！！", "渋谷", now(), now()),
     (1, "ディナーは予約してました！美味しい料理がたくさんあって幸せだった♪", "原宿", now(), now()),
     (1, "寂しいけど、ばいばーい（泣）夜景すごくキレイだった！！", "表参道", now(), now()),
-    (2, "ヒカリエに集合", '', now(), now()),
-    (2, "ハチ公前で写真撮影", '', now(), now()),
-    (2, "解散", '', now(), now()),
-    (3, "ヒカリエに集合", '', now(), now()),
-    (3, "ハチ公前で写真撮影", '', now(), now()),
-    (3, "解散", '', now(), now()),
-    (4, "ヒカリエに集合", '', now(), now()),
-    (4, "ハチ公前で写真撮影", '', now(), now()),
-    (4, "解散", '', now(), now());
+    (2, "駅前で集合、人やばい。", "自由が丘", now(), now()),
+    (2, "スタバでいっぱい！新作のフラペチーノ美味しい♡", "自由が丘", now(), now()),
+    (2, "メインストリートをゆっくりお散歩", "自由が丘", now(), now()),
+    (2, "楽天カフェで一休み！ワンピースの音楽が永遠リピート。。。懐かしい！！", "自由が丘", now(), now()),
+    (2, "LOFTでお買い物！二人でお揃いの手帳ゲッチュ(*^^*)カラクリすごかった！！", "自由が丘", now(), now()),
+    (2, "ディナーは予約してました！美味しい料理がたくさんあって幸せだった♪", "自由が丘", now(), now()),
+    (2, "寂しいけど、ばいばーい（泣）夜景すごくキレイだった！！", "自由が丘", now(), now()),    
+    (3, "駅前で集合、人やばい。", "自由が丘", now(), now()),
+    (3, "スタバでいっぱい！新作のフラペチーノ美味しい♡", "自由が丘", now(), now()),
+    (3, "メインストリートをゆっくりお散歩", "自由が丘", now(), now()),
+    (3, "楽天カフェで一休み！ワンピースの音楽が永遠リピート。。。懐かしい！！", "自由が丘", now(), now()),
+    (3, "LOFTでお買い物！二人でお揃いの手帳ゲッチュ(*^^*)カラクリすごかった！！", "自由が丘", now(), now()),
+    (3, "ディナーは予約してました！美味しい料理がたくさんあって幸せだった♪", "自由が丘", now(), now()),
+    (3, "寂しいけど、ばいばーい（泣）夜景すごくキレイだった！！", "自由が丘", now(), now());
 
 /*photosのテーブル作成*/
 create table photos (
@@ -134,9 +140,9 @@ create table follows (
   );
 
 insert into follows (fav_flg, user_id, couple_id, created, modified) values 
+    (1, 1, 1, now(), now()),
     (1, 1, 2, now(), now()),
-    (1, 2, 1, now(), now()),
-    (1, 3, 2, now(), now()),
+    (1, 1, 3, now(), now()),
     (1, 3, 1, now(), now()),
     (1, 4, 2, now(), now()),
     (1, 4, 1, now(), now()),
