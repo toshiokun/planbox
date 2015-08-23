@@ -5,7 +5,7 @@ require_once('function.php');
 //データベースに接続
 $dbh = connectDb();
 
-$dates = getfeeds(3);
+$dates = getfeeds(1);
 
 ?>
 
