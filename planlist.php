@@ -1,16 +1,5 @@
- <? 
-require_once('config.php');
-require_once('function.php');
-
-//データベースに接続
-$dbh = connectDb();
-
-$dates = getfeeds(1);
-
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="Ja">
 
 <head>
 
@@ -20,7 +9,7 @@ $dates = getfeeds(1);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PlanBox</title>
+    <title>Business Casual - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -52,8 +41,8 @@ $dates = getfeeds(1);
 
 <body>
 
-    <div class="brand">NewsFeeds</div>
-    <div class="address-bar">あなたのお気に入りカップルの最近のデートをチェック！</div>
+    <div class="brand">Plan List</div>
+    <div class="address-bar">お気に入りのプランから行きたい場所を確認！</div>
 
 
 
@@ -107,36 +96,27 @@ $dates = getfeeds(1);
         <!-- /.container -->
     </nav>
 
-
-
-<section id="cd-timeline" class="cd-container">
-    <div class="container">
-    <?php foreach ($dates as $date) { ?>
-        <div class="cd-timeline-block">
-            <div class="cd-timeline-img cd-picture" style="margin-left:-44px;">
-                <img src="vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
-            </div> <!-- cd-timeline-img -->
-            <a href="datecourse.php?id=<?php echo $date['id']; ?>"　style="">
-                <div class="cd-timeline-content"  style="width:90%!important;">
-                    <div class="row">
-                        <div class="box">
-                            <div class="col-lg-12" style="">
+<div class="container">
+    <a href="">
+    <div class="row" id="list">
+        <div class="box">
+            <div class="col-lg-12" style="">
                                 <div class="row"　style="position: relative;">
                                     <div class="col-sm-5" style="width: 400px;
                                                                 height: 380px; ">
-                                         <img class="img-responsive img-border img-left" src="<?php echo getphotos(getposts($date["id"])[0]["id"])[0]["filename"] ?>" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
+                                         <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="" style="width:auto;height:220px;position: absolute;top: 0;bottom: 0;margin: auto 0 auto 30px;">
                                     </div>
                                     <div class="col-sm-7">
                                         <hr>
                                         <h3 class="intro-text text-center">
                                             <i class="fa fa-map-marker fa-2x"></i>
-                                            <?php echo $date['name']; ?>
+                                            江の島デート
                                         </h3>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
                                         <p>
-                                            <?php echo $date['description']; ?>
+                                            朝から江の島へドライブでGO!昼ご飯はしらす丼を食べ、綺麗な夕焼け見て帰って来ましたー！
                                         </p>
                                             </div>
                                         </div>
@@ -145,14 +125,12 @@ $dates = getfeeds(1);
                                             <div class="col-sm-5 text-center">
                                                 <i class="fa fa-map-marker fa-2x"></i>
                                                 <span style="font-size:20px;font-weight: bold;">
-                                                    <?php echo getlocation($date['id']); ?>
-                                                </span>
+                                                神奈川県江の島</span>
                                             </div>
                                             <div class="col-sm-3">
                                                 <i class="fa fa-jpy fa-2x"></i>
                                                 <span style="font-size:20px;font-weight: bold;">
-                                                    <?php echo $date['budget']; ?>
-                                                </span>
+                                                    4000</span>
                                             </div>
                                             <div class="col-sm-4">
                                                 <i class="fa fa-heart fa-2x"></i>
@@ -163,20 +141,19 @@ $dates = getfeeds(1);
                                         </div>
                                         <br>
                                         <div class="row" style="margin-top:10px;">
-                                            <a href="user.php?id=<?php echo getcouple($date['couple_id'])['id'] ;?>">
+                                            <a href="user.php">
                                             <div class="col-sm-offset-2 col-sm-5">
-                                                <img class="img-responsive img-border img-left" src="user_images/<?php echo getuser(getcouple($date['couple_id'])['male_id'])['photo']; ?>" alt="" style="width:60px;height:auto; 
+                                                <img class="img-responsive img-border img-left" src="img/kohei.jpg" alt="" style="width:60px;height:auto; 
                                                 ">
                                                 <span style="font-size:20px;font-weight: bold; margin:12px auto 12px 0; display:block;">
-                                                    <?php echo getuser(getcouple($date['couple_id'])['male_id'])['name'];?>
-                                                </span>
+                                                    @k0hei000</span>
                                                 
                                             </div>
                                             <div class="col-sm-5">
-                                                <img class="img-responsive img-border img-left" src="user_images/<?php echo getuser(getcouple($date['couple_id'])['female_id'])['photo']; ?>" alt="" style="width:60px;height:auto; 
+                                                <img class="img-responsive img-border img-left" src="img/aragaki.jpg" alt="" style="width:60px;height:auto; 
                                                 ">
                                                 <span style="font-size:20px;font-weight: bold; margin:12px auto; display:block;">
-                                                    <?php echo getuser(getcouple($date['couple_id'])['female_id'])['name'];?>
+                                                    @gakki123</span>
                                             </div>
                                             </a>
                                         </div>
@@ -185,19 +162,9 @@ $dates = getfeeds(1);
                             </div>
                         </div>
                     </div>
-                <span class="cd-date" style=" font-weight:bold;color:white;">Jan 14</span>
-            </div> <!-- cd-timeline-content -->
-            </a>
-        </div> <!-- cd-timeline-block -->
-        <?php } ?>
-        
-        
-
-        
-    </div>
-</section>
-    <!-- /.container -->
-
+                    </a>
+                    <p class="btn btn-default" id="finished" role="button" style="float:right;margin-top:-20px;" >もう行った！</p>                            
+</div><!--container-->
     
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -214,6 +181,14 @@ $dates = getfeeds(1);
     $('.carousel').carousel({
         interval: 5000 //changes the speed
     })
+    </script>
+
+    <script>
+    $("#finished").click(function(){
+        $('#list').hide('slow', function(){ $('#list').remove(); });
+        $(this).hide('slow', function(){$(this).remove(); });
+       
+       });
     </script>
 
 </body>
